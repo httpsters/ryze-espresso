@@ -6,26 +6,48 @@
             transition: all 0.3s ease;
 }
 
-body,
 html {
    width: 100%;
    height: 100%;
 }
 
-h1 {
-   font-family: 'Oswald', Arial;
-   margin: 10px 0;
-   font-size: 22px;
+body {
+   background-image: url("images/background.jpg");
+   background-repeat: repeat-x;
 }
 
 h1 {
    font-family: 'Oswald', Arial;
    margin: 10px 0;
+   font-size: 25px;
+}
+
+h2 {
+   font-family: 'Oswald', Arial;
+   margin: 0px 0px 5px 0px;
    font-size: 18px;
+   text-align: center;
+}
+
+h3 {
+   font-family: 'Oswald', Arial;
+   margin: 10px 0px 0px 0px;
+   font-size: 15px;
+}
+   
+h4 {
+   font-family: 'Lato', Arial;
+   font-size: 14px;
+   line-height: 140%;
+   padding-left: 10px;  
+   background-color: #eee;
 }
 
 p {
    font-family: 'Lato', Arial;
+   font-size: 14px;
+   line-height: 140%;
+   padding-left: 10px   
 }
 
 /***************** Header *****************/
@@ -109,7 +131,10 @@ p {
    float: left;
    height: 250px;
    margin: 0 0 0 2%;
+   padding-left: 0%;
    background: #cecece;
+   color: #fff;
+
 }
 
 .col-1 {
@@ -120,18 +145,30 @@ p {
 .col-1 h2,
 .col-2 h2,
 .col-3 h2 {
-   background: #bbb;
-   padding: 15px;
+   padding-left: 10px;
+   padding-top: 5px;
+   padding-bottom: 8px; 
+
+}
+
+.col-31 {
+   width: 22%;
+   float: right;
+   height: 180px;
+   margin: 0 0 0 0;
+   
 }
 
 .double-col {
-   width: 66%;
+   width: 64%;
    margin: 2% 0 0 2%;
    background: #cecece;
    height: 50px;
    position: absolute;
    right: 0;
    bottom: 0;
+   padding-left: 2%;
+   color: #fff;
 }
 
 /* Tablets */
