@@ -12,8 +12,7 @@ html {
 }
 
 body {
-   background-image: url("images/background.jpg");
-   background-repeat: repeat-x;
+   background: url("../images/background.jpg") 0 0 repeat;
 }
 
 h1 {
@@ -34,12 +33,12 @@ h3 {
    margin: 10px 0px 0px 0px;
    font-size: 15px;
 }
-   
+
 h4 {
    font-family: 'Lato', Arial;
    font-size: 14px;
    line-height: 140%;
-   padding-left: 10px;  
+   padding-left: 10px;
    background-color: #eee;
 }
 
@@ -47,7 +46,7 @@ p {
    font-family: 'Lato', Arial;
    font-size: 14px;
    line-height: 140%;
-   padding-left: 10px   
+   padding-left: 10px
 }
 
 /***************** Header *****************/
@@ -59,7 +58,7 @@ p {
 }
 
 .header {
-   height: 170px;
+   height: 135px;
    position: relative;
 }
 
@@ -94,9 +93,10 @@ p {
    position: absolute;
    top: 0;
    right: 50%;
-   margin-right: -50px;
+   margin-right: -117px;
    display: block;
-   width: 100px;
+   width: 234px;
+   margin-top: -90px;
 }
 
 /***************** Content *****************/
@@ -147,7 +147,7 @@ p {
 .col-3 h2 {
    padding-left: 10px;
    padding-top: 5px;
-   padding-bottom: 8px; 
+   padding-bottom: 8px;
 
 }
 
@@ -156,7 +156,7 @@ p {
    float: right;
    height: 180px;
    margin: 0 0 0 0;
-   
+
 }
 
 .double-col {
@@ -189,7 +189,7 @@ p {
 /***************** Mobile Header Ver_1 *****************/
 
    .header {
-      height: 330px;
+      height: 130px;
    }
 
    .left-links li,
@@ -212,7 +212,7 @@ p {
    }
 
    .left-links {
-      padding-top: 170px;
+      padding-top: 130px;
       width: 100%;
       margin: 0;
    }
