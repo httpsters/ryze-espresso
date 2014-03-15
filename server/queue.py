@@ -34,6 +34,8 @@ class SongQueue:
             result = firebase.put(config.QUEUE, config.NEXT, next_queue)
 
         result = firebase.put(config.QUEUE, config.CURRENT, int(next_id))
+        song_link = self._songs.lookup(next_id).get('url')
+        result = firebase.put('nowplaying', 'cur', song_link)
         return result
 
     def _get_auto_song(self):
