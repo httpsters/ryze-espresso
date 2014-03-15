@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="riseApp">
+  <head>
+    <title>RISE Tunes</title>
+    <script src="https://cdn.firebase.com/js/client/1.0.6/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.7.0/angularfire.min.js"></script>
+    <!-- SoundCloud -->
+    <script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
+    <script src="js/app.js"></script>
+
+    
+  </head>
+
+  <body ng-controller="PlayerCtrl">
+
+<p>nowPlaying: {{nowplaying.cur}} </p>
+    <iframe id="sc-widget" width="200" height="200" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/68377502">
+      </iframe>
+
+    <!-- Custom Stylesheets -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+  </body>
+</html>

@@ -1,0 +1,345 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"new",
+				"newValue"
+			],
+			[
+				"ite",
+				"ItemCategories"
+			],
+			[
+				"item",
+				"itemFilter"
+			],
+			[
+				"si",
+				"signinRedirect"
+			],
+			[
+				"padding",
+				"padding-top"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"ItemCa",
+				"ItemCategory"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"padd",
+				"padding-bottom"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"size",
+				"font-size"
+			],
+			[
+				"Item",
+				"ItemCategory"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 2069,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/app.js",
+			"settings":
+			{
+				"buffer_size": 309,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "css/style.css",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/matt/Downloads/1uad_.html",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/server/server.js",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/server/insert-startup-data.js",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/server/collection-permissions.js",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/views/admin/users.html",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/views/admin/users.js",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/routing.js",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/server/one-click-login.js",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/theme.css",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/server/publish.js",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/client.js",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/views/admin/adminMenu.js",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/views/admin/admin.js",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/views/expo.html",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/views/admin/adminMenu.html",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/models.js",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/client.html",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/views/layout.html",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/client.css",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/bootstrap.css",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/views/pos.js",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/one-click-login.js",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/views/signin.html",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/views/admin/admin.css",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/views/admin/items.html",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/views/pos.html",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/views/admin/items.js",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/views/pos-keypad.html",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/views/admin/admin.html",
+		"/Users/matt/Downloads/OnScrollEffectLayout/index.html",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/client/views/signin.js",
+		"/Users/matt/Documents/Team5Repo/ExpoApp/expo.sublime-project",
+		"/Users/matt/Team5Repo/ExpoApp/server/server.js",
+		"/Users/matt/Team5Repo/ExpoApp/expo.sublime-project"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/Users/matt/Documents/Team5Repo/ExpoApp"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"_id",
+			"btn-",
+			"button-",
+			"button",
+			"btn:hover",
+			">header",
+			"url(../fonts",
+			"font",
+			"fontawesome",
+			"font-awe",
+			"container",
+			"main-con",
+			"nav",
+			"if we're not showing",
+			"if we",
+			"login",
+			"');\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 2069,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "js/app.js",
+					"settings":
+					{
+						"buffer_size": 309,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								273,
+								273
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "css/style.css",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 238.0,
+	"status_bar_visible": true
+}
