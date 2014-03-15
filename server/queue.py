@@ -1,11 +1,14 @@
 from database import firebase
-import json
+from songs import Songs
 import config
+import json
+import random
 
 
 class SongQueue:
 
     def __init__(self):
+        self._songs = Songs()
         pass
 
     def get_current_song(self):
@@ -42,6 +45,7 @@ class SongQueue:
 
     def _auto_add_song():
         ''' uses some neat algorithm to pick the next song '''
-        song_library = firebase.get(config.SONGS, None)
-        import random
+        songs = self._songs.get_songs()
+        return random.choice(songs.keys())
+
 
