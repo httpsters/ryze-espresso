@@ -1,5 +1,6 @@
 
-angular.module('riseApp.controllers', []).controller("PlayerCtrl", function ($scope, $firebase) {
+angular.module('riseApp.controllers', [])
+.controller("PlayerCtrl", function ($scope, $firebase) {
 	var nowplaying_ref = new Firebase("https://shining-fire-6877.firebaseio.com/nowplaying");
 	// nowplaying_ref.on('value', function(snapshot) {
 	//   $scope.nowplaying = snapshot.val();
@@ -36,6 +37,8 @@ angular.module('riseApp.controllers', []).controller("PlayerCtrl", function ($sc
   //   });
 
 
-}
-);
-
+})
+.controller("LikeSongCtrl", function($scope, $firebase) {
+    var songsRef = new Firebase("https://shining-fire-6877.firebaseio.com/songs");
+    $scope.allSongs = $firebase(songsRef);
+}); 
