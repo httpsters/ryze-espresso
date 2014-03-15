@@ -11,7 +11,7 @@ class Songs:
     def add_song(self, track_id):
         ''' Adds a song to the Firebase '''
         song = {
-            "date_added": time.time(),
+            "date_added": int(time.time()),
             "last_played": -1,
             "play_count": 0,
             "likes": 0
@@ -21,8 +21,7 @@ class Songs:
 
     def get_songs(self):
         result = firebase.get(config.SONGS, None)
-        songs = [song for song in result.values()]
-        return songs
+        return result
 
 
 if __name__ == "__main__":
