@@ -9,7 +9,6 @@ class SongQueue:
 
     def __init__(self):
         self._songs = Songs()
-        pass
 
     def get_current_song(self):
         ''' returns the song that's playing right now '''
@@ -41,5 +40,3 @@ class SongQueue:
         ''' uses some neat algorithm to pick the next song '''
         songs = self._songs.get_songs()
         return random.choice(songs.keys())
-
-
