@@ -1,5 +1,6 @@
 from database import firebase
 import time
+import config
 
 
 class Songs:
@@ -8,21 +9,18 @@ class Songs:
         pass
 
     def add_song(self, track_id):
-        '''
-        Adds a song to the Firebase
-        '''
+        ''' Adds a song to the Firebase '''
         song = {
-            "track_id": track_id,
             "date_added": time.time(),
             "last_played": -1,
             "play_count": 0,
             "likes": 0
         }
-        result = firebase.post("/songs", song)
+        result = firebase.put(config.SONGS, track_id, song)
         return result
 
     def get_songs(self):
-        result = firebase.get("/songs", None)
+        result = firebase.get(config.SONGS, None)
         songs = [song for song in result.values()]
         return songs
 
