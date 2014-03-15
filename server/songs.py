@@ -23,6 +23,10 @@ class Songs:
         result = firebase.get(config.SONGS, None)
         return result
 
+    def lookup(self, song_id):
+        ''' returns all metadata for this song that is stored in firebase '''
+        return self.get_songs().get(str(song_id))
+
 
 if __name__ == "__main__":
     s = Songs()
