@@ -14,7 +14,8 @@ class Songs:
             "date_added": int(time.time()),
             "last_played": -1,
             "play_count": 0,
-            "likes": 0
+            "likes": 0,
+            "seconds": 10
         }
         result = firebase.put(config.SONGS, track_id, song)
         return result
