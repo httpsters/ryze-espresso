@@ -1,8 +1,7 @@
-angular.module('riseApp.controllers', [])
-.controller("PlayerCtrl", function ($scope, $firebase) {
+angular.module('riseApp.controllers').controller("PlayerCtrl", function($scope, $firebase) {
 	var nowplaying_ref = new Firebase("https://shining-fire-6877.firebaseio.com/nowplaying");
 	
-	$scope.nowplaying = $firebase(nowplaying_ref);
+	//$scope.nowplaying = $firebase(nowplaying_ref);
 
 	var widgetIframe = document.getElementById('sc-widget');
 	var widget       = SC.Widget(widgetIframe);
@@ -11,7 +10,7 @@ angular.module('riseApp.controllers', [])
 		console.log('ds.cur',dataSnapshot.val().cur); // subset of the returned value
 		
 		var newSoundUrl = dataSnapshot.val().cur;//'http://api.soundcloud.com/tracks/' + value.cur;
-
+		$scope.nowplaying = newSoundUrl;
 		widget.load(newSoundUrl, {
 			auto_play: true,
 			show_artwork: true,
@@ -46,7 +45,4 @@ angular.module('riseApp.controllers', [])
 
 
 })
-.controller("LikeSongCtrl", function($scope, $firebase) {
-    var songsRef = new Firebase("https://shining-fire-6877.firebaseio.com/songs");
-    $scope.allSongs = $firebase(songsRef);
-});
+
