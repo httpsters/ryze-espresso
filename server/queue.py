@@ -1,5 +1,4 @@
 from database import firebase
-from songs import Songs
 import config
 import json
 import random
@@ -9,8 +8,12 @@ import math
 
 class SongQueue:
 
-    def __init__(self):
-        self._songs = Songs()
+    def get_songs(self):
+        result = firebase.get(config.SONGS, None)
+        return result
+
+    def lookup(self, song_id):
+        return self.get_songs().get(str(song_id))
 
     def get_current_song(self):
         ''' returns the song that's playing right now '''
@@ -37,13 +40,13 @@ class SongQueue:
             result = firebase.put(config.QUEUE, config.NEXT, next_queue)
 
         result = firebase.put(config.QUEUE, config.CURRENT, int(next_id))
-        song_link = self._songs.lookup(next_id).get('url')
+        song_link = self.lookup(next_id).get('url')
         result = firebase.put('nowplaying', 'cur', song_link)
         return result
 
     def _get_auto_song(self):
         ''' uses some neat algorithm to pick the next song '''
-        songs = self._songs.get_songs()
+        songs = self.get_songs()
         get_score = lambda song_id: self._song_score(songs.get(song_id))
         # generate a list of (song_id, song_score) pairs
         scores = [(song_id, get_score(song_id)) for song_id in songs.keys()]
