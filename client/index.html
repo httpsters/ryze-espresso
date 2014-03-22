@@ -23,6 +23,7 @@
   <script src="js/controllers/playerctrl.js"></script>
   <script src="js/controllers/likectrl.js"></script>
   <script src="js/controllers/submitctrl.js"></script>
+  <script src="js/controllers/leaderboardctrl.js"></script>
 
   <!-- SoundCloud -->
   <script src="js/lib/soundcloud.js"></script>
@@ -146,8 +147,15 @@
                   </li>
                </ul>
             </div>
-            <div class="col-3">
-               <h2>LEADER BOARD</h2>
+            <div class="col-3" ng-controller="LeaderboardCtrl">
+              <h2>LEADER BOARD</h2>
+              <ul class="songs-list">
+                <li ng-repeat="user in users">
+                  <div class="rank">9</div>
+                  <div class="rank-nickname">{{ user.username }}</div>
+                  <div class="like-heart-counts">{{ user.likes }}</div>
+                </li>
+              </ul>
             </div>
          </div>
       </div>
