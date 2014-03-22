@@ -12,13 +12,19 @@ angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, 
 	
 	// try and resolve track with soundcloud api (using angular service deferred promise result)
 	var trackPromise = scService.resolve(newsong.url);
+	console.log(trackPromise);
 	// wait on promise to return 
     trackPromise.then(function(resolvedSong) {
-       //$scope.resolvedSong = resolvedSong;
-       	console.log('submit ctrl sc resolve track: ');
+       	//$scope.resolvedSong = resolvedSong;
+		
+		console.log('submit ctrl sc resolve track: ');
 		console.log('   title: ',resolvedSong.title, 'duration: ', resolvedSong.duration);
 		console.log('   username: ', newsong.submitter);
-    }); // track.then end
+    },
+    function(e) {
+    	console.log(e);
+    	alert('That url was not a valid track');
+    }); // trackPromise handlers end
 
 		
 	};

@@ -9,11 +9,12 @@ angular.module('riseApp.services').factory('scService', function ($http, $q) {
 	        	method:"GET", 
 	        	url:'http://api.soundcloud.com/resolve.json?url=' + trackUrl + '&client_id=e886c21459d731e8ac7aeedcb3c3b4bb'
 	    	})
-	    	.success(
-	    		function (result) {
-	    			deferred.resolve(result);
-	    		}
-			);
+	    	.success(function (result) {
+    			deferred.resolve(result);
+	    	})
+			.error(function (e) {
+				deferred.reject(e);
+			})
 
 	        return deferred.promise;
 	    } // end resolve fn
