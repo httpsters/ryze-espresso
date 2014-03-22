@@ -1,7 +1,9 @@
-var app = angular.module("riseApp", [
+var riseApp = angular.module("riseApp", [
+	'riseApp.services',
     'riseApp.controllers',
-    "firebase"
+    'firebase'
 ]);
+angular.module('riseApp.services', []);
 angular.module('riseApp.controllers', []);
 // check out the angular seed template for more help with templates, 
 // routes, directives and stuff
