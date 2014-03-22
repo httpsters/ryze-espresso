@@ -185,7 +185,7 @@ h2 {
 .col-1 .songs-list {
   padding: 0px 15px 15px;
 }
-.col-1 img {
+.col-1 .sc-play {
   width: 100%;
 }
 
@@ -217,10 +217,13 @@ h2 {
   margin-top: 5px;
 }
 .songs-list .like-heart {
-  background: url("../images/like_grey.svg") 50% 50% no-repeat;
+  background: url("../images/heart_16.svg") top center no-repeat;
   width: 10px;
-  height: 15px;
+  height: 16px;
   cursor: pointer;
+}
+.songs-list .new-heart {
+  background-position: 50% -16px;
 }
 .songs-list .track-name,
 .songs-list .title-song-block {
@@ -261,6 +264,18 @@ h2 {
 .col-2 .title-song-block {
   width: 82.8484%;
 }
+.col-2 .like-heart {
+  background: url("../images/heart_24.svg") top center no-repeat;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.col-2 .new-heart {
+  background-position: 50% -24px;
+}
+.col-2 .like {
+  text-align: left;
+}
 
 .col-3 {
   float: left;
@@ -268,10 +283,37 @@ h2 {
   margin-right: 2.35765%;
   width: 31.76157%;
   background: #fff;
-  height: 400px;
 }
 .col-3:last-child {
   margin-right: 0;
+}
+.col-3 li div {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 12px;
+}
+.col-3 .like-heart-counts-title,
+.col-3 .like-heart-counts {
+  text-align: center;
+}
+.col-3 .rank-name-title,
+.col-3 .rank {
+  width: 17.1875%;
+  text-align: center;
+}
+.col-3 .rank-nickname-title,
+.col-3 .rank-nickname {
+  width: 60.15625%;
+}
+.col-3 .like-heart-counts-title,
+.col-3 .like-heart-counts {
+  width: 16.40625%;
+  padding-top: 2px;
+  height: 14px;
+}
+.col-3 .like-heart-counts {
+  padding-left: 20px;
+  background: url("../images/heart_16.svg") 0 -16px no-repeat;
 }
 
 .box {
