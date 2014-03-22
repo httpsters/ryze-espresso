@@ -15,6 +15,13 @@ class SongQueue:
     def lookup(self, song_id):
         return self.get_songs().get(str(song_id))
 
+    def get_songs(self):
+        result = firebase.get(config.SONGS, None)
+        return result
+
+    def lookup(self, song_id):
+        return self.get_songs().get(str(song_id))
+
     def get_current_song(self):
         ''' returns the song that's playing right now '''
         result = firebase.get(config.QUEUE, config.CURRENT)
