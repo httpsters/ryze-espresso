@@ -8,8 +8,8 @@ def start_song():
     q.change_songs()
     song_id = q.get_current_song()
     song = songs.lookup(song_id)
-    song_length = song.get('seconds', 0)
-    print "song %d playing. waiting %d seconds for next song" % \
+    song_length = song.get('duration', 0)
+    print "song %s playing. waiting %d seconds for next song" % \
             (song_id, song_length)
     threading.Timer(song_length, start_song).start()
 
