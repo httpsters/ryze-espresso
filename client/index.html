@@ -164,6 +164,11 @@
             <div class="col-3" ng-controller="LeaderboardCtrl">
                <h2>LEADER BOARD</h2>
                <ul class="songs-list">
+               <li>
+                 <div class="rank-name-title">Rank</div>
+                 <div class="rank-nickname-title">Nickname</div>
+                 <div class="like-heart-counts-title">Likes</div>
+                </li>
                 <li ng-repeat="user in users">
                   <div class="rank">9</div>
                   <div class="rank-nickname">{{ user.username }}</div>
