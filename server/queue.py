@@ -24,6 +24,7 @@ class SongQueue:
         ''' puts current song in previous queue, sets next song to current '''
         prev_queue = self.get_previous_queue() # working copy of prev queue
         prev_queue.insert(0, self.get_current_song()) # current song at front
+        prev_queue = prev_queue[:6] # only keep most recent 6 songs
         result = firebase.put(config.QUEUE, config.PREV, prev_queue) # update firebase
 
         next_queue = firebase.get(config.QUEUE, config.NEXT)
