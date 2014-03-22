@@ -12,10 +12,15 @@ class Songs:
         ''' Adds a song to the Firebase '''
         song = {
             "date_added": int(time.time()),
+            "added_by": "username",
+            "last_liked": -1,
             "last_played": -1,
             "play_count": 0,
             "likes": 0,
-            "seconds": 10
+            "title": 'Song name',
+            "artist": 'Artist',
+            "duration": 10,
+            "url": "http://....."
         }
         result = firebase.put(config.SONGS, track_id, song)
         return result
