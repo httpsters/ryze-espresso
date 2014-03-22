@@ -1,5 +1,6 @@
 angular.module('riseApp.controllers').controller("PlayerCtrl", function($scope, $firebase) {
 	var nowplaying_ref = new Firebase("https://shining-fire-6877.firebaseio.com/nowplaying");
+	var queue_ref = new Firebase("https://shining-fire-6877.firebaseio.com/queue/")
 	
 	//$scope.nowplaying = $firebase(nowplaying_ref);
 
