@@ -24,6 +24,7 @@
   <script src="js/controllers/playerctrl.js"></script>
   <script src="js/controllers/likectrl.js"></script>
   <script src="js/controllers/submitctrl.js"></script>
+  <script src="js/controllers/leaderboardctrl.js"></script>
 
   <!-- SoundCloud -->
   <script src="js/lib/soundcloud.js"></script>
@@ -160,60 +161,15 @@
                   </li>
                </ul>
             </div>
-            <div class="col-3">
+            <div class="col-3" ng-controller="LeaderboardCtrl">
                <h2>LEADER BOARD</h2>
                <ul class="songs-list">
-                  <li>
-                     <div class="rank-name-title">Rank</div>
-                     <div class="rank-nickname-title">Nickname</div>
-                     <div class="like-heart-counts-title">Likes</div>
-                  </li>
-                  <li>
-                     <div class="rank">1</div>
-                     <div class="rank-nickname">JTopp</div>
-                     <div class="like-heart-counts">157</div>
-                  </li>
-                  <li>
-                     <div class="rank">2</div>
-                     <div class="rank-nickname">Sudeep</div>
-                     <div class="like-heart-counts">124</div>
-                  </li>
-                  <li>
-                     <div class="rank">3</div>
-                     <div class="rank-nickname">Sudeep</div>
-                     <div class="like-heart-counts">124</div>
-                  </li>
-                  <li>
-                     <div class="rank">4</div>
-                     <div class="rank-nickname">Alexey</div>
-                     <div class="like-heart-counts">124</div>
-                  </li>
-                  <li>
-                     <div class="rank">5</div>
-                     <div class="rank-nickname">JTopp</div>
-                     <div class="like-heart-counts">124</div>
-                  </li>
-                  <li>
-                     <div class="rank">6</div>
-                     <div class="rank-nickname">Sudeep</div>
-                     <div class="like-heart-counts">124</div>
-                  </li>
-                  <li>
-                     <div class="rank">7</div>
-                     <div class="rank-nickname">Sudeep</div>
-                     <div class="like-heart-counts">124</div>
-                  </li>
-                  <li>
-                     <div class="rank">8</div>
-                     <div class="rank-nickname">JTopp</div>
-                     <div class="like-heart-counts">124</div>
-                  </li>
-                  <li>
-                     <div class="rank">9</div>
-                     <div class="rank-nickname">Sudeep</div>
-                     <div class="like-heart-counts">124</div>
-                  </li>
-               </ul>
+                <li ng-repeat="user in users">
+                  <div class="rank">9</div>
+                  <div class="rank-nickname">{{ user.username }}</div>
+                  <div class="like-heart-counts">{{ user.likes }}</div>
+                </li>
+              </ul>
             </div>
          </div>
       </div>

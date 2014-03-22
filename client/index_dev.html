@@ -1,43 +1,160 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html ng-app="riseApp">
-  <head>
-    <title>RISE Tunes</title>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="keywords" content="" />
+  <meta http-equiv="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
 
-    <!-- libs -->
-    <script src="js/lib/firebase.js"></script>
-    <script src="js/lib/angular.js"></script>
-    <script src="js/lib/angularfire.js"></script>
+  <title>Sound of RISE</title>
 
-    <!-- Angular App -->
-    <script src="js/app.js"></script>
-    <script src="js/playerctrl.js"></script>
-    <script src="js/likectrl.js"></script>
-    
-    <!-- SoundCloud -->
-    <script src="js/lib/soundcloud.js"></script>
-    
-  </head>
+  
+  
+  <!-- libs -->
+  <script src="js/lib/firebase.js"></script>
+  <script src="js/lib/angular.js"></script>
+  <script src="js/lib/angularfire.js"></script>
+  <script src="js/lib/zepto.js"></script>
 
-  <body>
-    <div class='player' ng-controller="PlayerCtrl">
-      <p>nowPlaying: {{nowplaying}} </p>
-      <iframe id="sc-widget" width="200" height="200" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/134766478">
-      </iframe>
-    </div>
-    
-    <div class='song-liker' ng-controller='LikeSongCtrl'>
-      <table>
-        <tr ng-repeat="song in allSongs">
-          <td>
-            {{ song }}
-          </td>
-        </tr>
-      </table>
-    </div>
 
-    <!-- Custom Stylesheets -->
-    <link rel="stylesheet" href="css/style.css" />
+  <!-- Angular App -->
+  <script src="js/app.js"></script>
+  <script src="js/services/soundcloudapi.js"></script>
+  <script src="js/controllers/playerctrl.js"></script>
+  <script src="js/controllers/likectrl.js"></script>
+  <script src="js/controllers/submitctrl.js"></script>
 
-    <link rel="stylesheet" href="css/bootstrap3.0.3.css" />
-  </body>
+  <!-- SoundCloud -->
+  <script src="js/lib/soundcloud.js"></script>
+</head>
+<body>
+   <div class="wrapper">
+      <div class="left-sidebar">
+         <img src="images/riselogo.png" alt="">
+         <nav>
+            <ul>
+               <li><a href="">Home</a></li>
+               <li><a href="">About RISE</a></li>
+               <li><a href="">Menu</a></li>
+               <li><a href="">Contact</a></li>
+               <li><a href="">Press</a></li>
+               <li><a href="">Sound of RISE</a></li>
+            </ul>
+         </nav>
+      </div>
+      <div class="content">
+         <div class="desktop-logo-block"></div>
+         <div class="about"></div>
+         <div class="upload-song">
+            <p class="desc">
+               We want to share our love of music with our fellow coffee drinkers. Share your favourite songs and we play them in the café for the rest Rise to hear.  Upload and vote for the music that matters to you.
+            </p>
+            <div class="upload-form" ng-controller="SubmitCtrl">
+               <form>
+                  <div class="sc-url-block">
+                     <label>Find your track on souncloud and paste the URL below</label>
+                     <input class="sc-url" type="text" ng-model="newsong.url" placeholder="Paste your soundcloud URL here">
+                  </div>
+                  <div class="nickname-block">
+                     <label>Enter your nickname for the leader board</label>
+                     <input class="nickname" type="text" ng-model="newsong.submitter" placeholder="Nickname">
+                  </div>
+                  <div class="submit-url-block">
+                     <label></label>
+                     <button class="submit-url" ng-click="submit(newsong)"></button>
+                  </div>
+               </form>
+            </div>
+         </div>
+         <div class="three-col">
+            <div class="col-1" ng-controller="PlayerCtrl">
+               <!-- <img src="images/play.jpg" alt=""> -->
+                <iframe id="sc-widget" width="269" height="253" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/134766478"></iframe>
+               <h2>UPCOMING SONGS</h2>
+               <ul class="songs-list">
+                  <li>
+                     <div class="track-name">Track Name</div>
+                     <div class="like">Like</div>
+                     <div class="countdown-title">Countdown</div>
+                  </li>
+                  <li>
+                     <div class="title-song-block">
+                        <div class="title-song">Happy</div>
+                        <div class="submit-by">Submitted by <span class="submition-name">JTopp</span></div>
+                     </div>
+                     <a href="#" class="like-heart"></a>
+                     <div class="countdown"><span class="countdown-time">3.43</span> mins</div>
+                  </li>
+                  <li>
+                     <div class="title-song-block">
+                        <div class="title-song">Dark Horse</div>
+                        <div class="submit-by">Submitted by <span class="submition-name">King George</span></div>
+                     </div>
+                     <a href="#" class="like-heart"></a>
+                     <div class="countdown"><span class="countdown-time">5:27</span> mins</div>
+                  </li>
+               </ul>
+            </div>
+            <div class="col-2">
+               <h2>RECENTLY PLAYED</h2>
+               <ul class="songs-list">
+                  <li>
+                     <div class="track-name">Track Name</div>
+                     <div class="like">Like</div>
+                  </li>
+                  <li>
+                     <div class="title-song-block">
+                        <div class="title-song">A Day in the World</div>
+                        <div class="submit-by">Submitted by <span class="submition-name">JTopp</span></div>
+                     </div>
+                     <a href="#" class="like-heart"></a>
+                  </li>
+                  <li>
+                     <div class="title-song-block">
+                        <div class="title-song">Suburbs</div>
+                        <div class="submit-by">Submitted by <span class="submition-name">King George</span></div>
+                     </div>
+                     <a href="#" class="like-heart"></a>
+                  </li>
+                  <li>
+                     <div class="title-song-block">
+                        <div class="title-song">Reﬂector</div>
+                        <div class="submit-by">Submitted by <span class="submition-name">Alexey</span></div>
+                     </div>
+                     <a href="#" class="like-heart"></a>
+                  </li>
+                  <li>
+                     <div class="title-song-block">
+                        <div class="title-song">Neighbourhood #1</div>
+                        <div class="submit-by">Submitted by <span class="submition-name">Sudeep</span></div>
+                     </div>
+                     <a href="#" class="like-heart"></a>
+                  </li>
+                  <li>
+                     <div class="title-song-block">
+                        <div class="title-song">Coldplay - Paradise</div>
+                        <div class="submit-by">Submitted by <span class="submition-name">JTopp</span></div>
+                     </div>
+                     <a href="#" class="like-heart"></a>
+                  </li>
+                  <li>
+                     <div class="title-song-block">
+                        <div class="title-song">Coldplay</div>
+                        <div class="submit-by">Submitted by <span class="submition-name">JTopp</span></div>
+                     </div>
+                     <a href="#" class="like-heart"></a>
+                  </li>
+               </ul>
+            </div>
+            <div class="col-3">
+               <h2>LEADER BOARD</h2>
+            </div>
+         </div>
+      </div>
+   </div>
+
+  <link href='css/googlefonts.css' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+</body>
 </html>
