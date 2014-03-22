@@ -1,0 +1,448 @@
+// @import "compass";
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin background-size($value) {
+   -webkit-background-size: cover;
+      -moz-background-size: cover;
+        -o-background-size: cover;
+           background-size: cover;
+}
+
+@mixin text-shadow($x, $y, $blur, $color){
+   -webkit-text-shadow: $x $y $blur $color;
+      -moz-text-shadow: $x $y $blur $color;
+        -o-text-shadow: $x $y $blur $color;
+           text-shadow: $x $y $blur $color;
+}
+
+@mixin upload-inputs() {
+   color: rgb(102, 102, 102);
+   border: 1px solid #C6C5C5;
+   outline-color: orange;
+   font-family: 'Lato';
+   font-size: 18px;
+}
+
+$content-height: 400px;
+$max-width: 1024px;
+$visual-grid: true;
+
+$tablet-portrait: 768px;
+$mobile: 384px;
+
+* {
+   @include transition( all 0.3s );
+}
+
+body {
+   font-family: Arial;
+   font-size: 90%;
+   background: url("../images/bg.jpg") center top no-repeat fixed;
+   @include background-size(cover);
+   width: 100%;
+}
+
+h2 {
+   font-family: 'Oswald';
+   font-weight: 300;
+   font-size: 24px;
+   padding-top: 25px;
+   color: #444;
+   text-align: center;
+   text-transform: uppercase;
+}
+
+.wrapper {
+   @include outer-container;
+}
+
+.left-sidebar {
+   @include span-columns(2);
+   background: red;
+
+   img {
+      width: 90px;
+   }
+
+   nav ul li {
+      padding: 20px 0;
+      padding: 0;
+      margin: 0;
+   }
+}
+
+.content {
+   @include span-columns(10);
+   height: $content-height;
+}
+
+.desktop-logo-block {
+   height: 165px;
+}
+
+.about {
+   height: 150px;
+}
+
+.upload-song {
+   overflow: hidden;
+   border-top: 1px solid #fff;
+
+   .desc {
+      width: 88.4688%;
+      padding: 18px 0;
+      font-family: 'Lato';
+      font-size: 16px;
+      color: #fff;
+      line-height: 1.4em;
+      @include text-shadow(1px, 1px, 0, #2E2E2E);
+   }
+}
+
+.upload-form {
+      padding: 3.4026%;
+      background: #fff;
+      //display inline-block element's space fix
+      font-size: 0;
+
+   label {
+      font-size: 13px;
+      font-weight: 300;
+      font-family: 'Lato';
+   }
+
+   .sc-url-block {
+      display: inline-block;
+      vertical-align: bottom;
+      width: 50.2589%;
+      margin-right: 3.4026%;
+   }
+
+   .sc-url {
+      width: 100%;
+      margin-top: 5px;
+      padding: 13px 10px 13px 80px;
+      background: url('../images/sc.jpg') 10px 7px no-repeat;
+      @include upload-inputs();
+      font-weight: 300;
+   }
+
+   .nickname-block {
+      display: inline-block;
+      vertical-align: bottom;
+      width: 29.8979%;
+      margin-right: 3.4026%;
+   }
+
+   .nickname {
+      width: 100%;
+      margin-top: 5px;
+      padding: 13px 15px;
+      @include upload-inputs();
+      font-weight: 300;
+   }
+
+   .submit-url-block {
+      display: inline-block;
+      vertical-align: bottom;
+      width: 12.3969%;
+   }
+
+   .submit-url {
+      width: 100%;
+      font-size: 18px;
+      font-weight: 400;
+      font-family: 'Lato';
+      border: none;
+      background: #ED1F24;
+      padding: 14px 0;
+      text-align: center;
+      cursor: pointer;
+      color: #fff;
+   }
+}
+
+.three-col {
+   overflow: hidden;
+   margin-top: 18px;
+   margin-bottom: 100px;
+}
+
+.col-1 {
+   @include span-columns(4);
+   background: #fff;
+
+   h2 {
+      padding-top: 10px;
+   }
+
+   .songs-list {
+      padding: 0px 15px 15px;
+   }
+
+   img {
+      width: 100%;
+   }
+}
+
+.songs-list {
+
+   padding: 10px 15px 25px;
+   //display inline-block element's space fix
+   font-size: 0;
+   font-family: 'Lato';
+
+   li:first-child {
+      border: none;
+   }
+
+   li {
+      border-top: 1px solid #979797;
+      padding-top: 9px;
+      margin-top: 9px;
+   }
+
+   li div {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 12px;
+   }
+
+   .title-song {
+      font-weight: 700;
+      color: #4E4E4E;
+   }
+
+   .submit-by {
+      font-size: 11px;
+      display: block;
+      margin-top: 5px;
+   }
+
+   .like-heart {
+      background: url('../images/heart_16.svg') top center no-repeat;
+      width: 10px;
+      height: 16px;
+      cursor: pointer;
+   }
+
+   .new-heart {
+      background-position: 50% -16px;
+   }
+
+   .track-name,
+   .title-song-block {
+      width: 57.8484%;
+   }
+
+   .like,
+   .like-heart {
+      width: 12.6060%;
+      display: inline-block;
+      vertical-align: middle;
+   }
+
+   .countdown-title,
+   .countdown {
+      width: 29.3030%;
+   }
+
+   .like,
+   .countdown-title,
+   .countdown {
+      text-align: center;
+   }
+
+   .sc-play {
+      width: 100%;
+   }
+}
+
+.col-2 {
+   @include span-columns(4);
+   background: #fff;
+
+   li {
+      border-top: 1px solid #979797;
+      padding-top: 11px;
+      margin-top: 11px;
+   }
+
+   .track-name,
+   .title-song-block {
+      width: 82.8484%;
+   }
+
+   .like-heart {
+      background: url('../images/heart_24.svg') top center no-repeat;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+   }
+
+   .new-heart {
+      background-position: 50% -24px;
+   }
+
+   .like {
+      text-align: left;
+   }
+}
+
+.col-3 {
+   @include span-columns(4);
+   background: #fff;
+
+   li div {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 12px;
+   }
+
+   .like-heart-counts-title,
+   .like-heart-counts {
+      text-align: center;
+   }
+
+   .rank-name-title,
+   .rank {
+      width: (44 / 256) * 100%;
+      text-align: center;
+   }
+
+   .rank-nickname-title,
+   .rank-nickname {
+      width: (154 / 256) * 100%;
+   }
+
+   .like-heart-counts-title,
+   .like-heart-counts {
+      width: (42 / 256) * 100%;
+      padding-top: 2px;
+      height: 14px;
+   }
+
+   .like-heart-counts {
+      padding-left: 20px;
+      background: url("../images/heart_16.svg") 0 -16px no-repeat;
+   }
+}
+
+.box { @include border-radius(10px); }
+
+
+// Tablet
+@include media(max-width $tablet-portrait) {
+   .left-sidebar {
+      @include span-columns(12);
+
+      img {
+         float: left;
+      }
+
+      nav ul li {
+         display: inline-block;
+      }
+   }
+
+   .content {
+      @include span-columns(12);
+
+      .desktop-logo-block {
+         display: none;
+      }
+   }
+}
+
+@include media(max-width $mobile)  {
+   .left-sidebar {
+      nav ul li {
+         display: block;
+         padding: 0;
+         margin: 0;
+      }
+
+      img {
+         width: 140px;
+      }
+   }
+
+   .upload-song {
+opacity: 0.9;
+      .desc {
+         width: 100%;
+         padding: 14px;
+         font-size: 18px;
+      }
+
+   }
+
+   .upload-form {
+
+      .sc-url-block {
+         margin-top: 10px;
+         width: 100%;
+      }
+
+      .nickname-block {
+         margin-top: 18px;
+         width: 100%;
+      }
+
+      .submit-url-block {
+         margin-top: 14px;
+         margin-bottom: 5px;
+         width: 38.6458%;
+      }
+   }
+
+   .three-col {
+      margin-top: 25px;
+      margin-bottom: 20px;
+   }
+
+   .col-1 {
+      @include span-columns(12);
+      background: #fff;
+      margin-bottom: 25px;
+      opacity: 0.9;
+   }
+
+   .songs-list {
+
+      li div {
+         display: inline-block;
+         vertical-align: middle;
+         font-size: 14px;
+      }
+
+      .submit-by {
+         font-size: 13px;
+         display: block;
+         margin-top: 5px;
+      }
+   }
+
+   .col-2 {
+      @include span-columns(12);
+      background: #fff;
+      margin-bottom: 25px;
+      opacity: 0.9;
+   }
+
+   .col-3 {
+      @include span-columns(12);
+      background: #fff;
+      margin-bottom: 25px;
+      opacity: 0.9;
+      height: 400px;
+   }
+}
