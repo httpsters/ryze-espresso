@@ -8,8 +8,9 @@
 
   <title>Sound of RISE</title>
 
-  
-  
+   <link href='http://fonts.googleapis.com/css?family=Oswald:300, 400' rel='stylesheet' type='text/css'>
+   <link href='http://fonts.googleapis.com/css?family=Lato:300, 400, 700' rel='stylesheet' type='text/css'>
+
   <!-- libs -->
   <script src="js/lib/firebase.js"></script>
   <script src="js/lib/angular.js"></script>
@@ -26,6 +27,17 @@
 
   <!-- SoundCloud -->
   <script src="js/lib/soundcloud.js"></script>
+
+  <!-- CSS -->
+  <!-- <link href='css/googlefonts.css' rel='stylesheet' type='text/css'> -->
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+
+  <script type="text/javascript">
+      function changeHeart(obj) {
+         obj.className = "like-heart new-heart";
+      }
+  </script>
 </head>
 <body>
    <div class="wrapper">
@@ -68,8 +80,10 @@
          </div>
          <div class="three-col">
             <div class="col-1" ng-controller="PlayerCtrl">
-               <!-- <img src="images/play.jpg" alt=""> -->
-                <iframe id="sc-widget" width="269" height="253" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/134766478"></iframe>
+                <div class="sc-play">
+                  <!-- <img src="images/play.jpg" alt=""> -->
+                  <iframe id="sc-widget" width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/134766478"></iframe>
+                </div>
                <h2>UPCOMING SONGS</h2>
                <ul class="songs-list">
                   <li>
@@ -82,7 +96,7 @@
                         <div class="title-song">Happy</div>
                         <div class="submit-by">Submitted by <span class="submition-name">JTopp</span></div>
                      </div>
-                     <a href="#" class="like-heart"></a>
+                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
                      <div class="countdown"><span class="countdown-time">3.43</span> mins</div>
                   </li>
                   <li>
@@ -90,7 +104,7 @@
                         <div class="title-song">Dark Horse</div>
                         <div class="submit-by">Submitted by <span class="submition-name">King George</span></div>
                      </div>
-                     <a href="#" class="like-heart"></a>
+                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
                      <div class="countdown"><span class="countdown-time">5:27</span> mins</div>
                   </li>
                </ul>
@@ -107,54 +121,102 @@
                         <div class="title-song">A Day in the World</div>
                         <div class="submit-by">Submitted by <span class="submition-name">JTopp</span></div>
                      </div>
-                     <a href="#" class="like-heart"></a>
+                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
                   </li>
                   <li>
                      <div class="title-song-block">
                         <div class="title-song">Suburbs</div>
                         <div class="submit-by">Submitted by <span class="submition-name">King George</span></div>
                      </div>
-                     <a href="#" class="like-heart"></a>
+                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
                   </li>
                   <li>
                      <div class="title-song-block">
                         <div class="title-song">Reﬂector</div>
                         <div class="submit-by">Submitted by <span class="submition-name">Alexey</span></div>
                      </div>
-                     <a href="#" class="like-heart"></a>
+                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
                   </li>
                   <li>
                      <div class="title-song-block">
                         <div class="title-song">Neighbourhood #1</div>
                         <div class="submit-by">Submitted by <span class="submition-name">Sudeep</span></div>
                      </div>
-                     <a href="#" class="like-heart"></a>
+                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
                   </li>
                   <li>
                      <div class="title-song-block">
                         <div class="title-song">Coldplay - Paradise</div>
                         <div class="submit-by">Submitted by <span class="submition-name">JTopp</span></div>
                      </div>
-                     <a href="#" class="like-heart"></a>
+                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
                   </li>
                   <li>
                      <div class="title-song-block">
                         <div class="title-song">Coldplay</div>
                         <div class="submit-by">Submitted by <span class="submition-name">JTopp</span></div>
                      </div>
-                     <a href="#" class="like-heart"></a>
+                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
                   </li>
                </ul>
             </div>
             <div class="col-3">
                <h2>LEADER BOARD</h2>
+               <ul class="songs-list">
+                  <li>
+                     <div class="rank-name-title">Rank</div>
+                     <div class="rank-nickname-title">Nickname</div>
+                     <div class="like-heart-counts-title">Likes</div>
+                  </li>
+                  <li>
+                     <div class="rank">1</div>
+                     <div class="rank-nickname">JTopp</div>
+                     <div class="like-heart-counts">157</div>
+                  </li>
+                  <li>
+                     <div class="rank">2</div>
+                     <div class="rank-nickname">Sudeep</div>
+                     <div class="like-heart-counts">124</div>
+                  </li>
+                  <li>
+                     <div class="rank">3</div>
+                     <div class="rank-nickname">Sudeep</div>
+                     <div class="like-heart-counts">124</div>
+                  </li>
+                  <li>
+                     <div class="rank">4</div>
+                     <div class="rank-nickname">Alexey</div>
+                     <div class="like-heart-counts">124</div>
+                  </li>
+                  <li>
+                     <div class="rank">5</div>
+                     <div class="rank-nickname">JTopp</div>
+                     <div class="like-heart-counts">124</div>
+                  </li>
+                  <li>
+                     <div class="rank">6</div>
+                     <div class="rank-nickname">Sudeep</div>
+                     <div class="like-heart-counts">124</div>
+                  </li>
+                  <li>
+                     <div class="rank">7</div>
+                     <div class="rank-nickname">Sudeep</div>
+                     <div class="like-heart-counts">124</div>
+                  </li>
+                  <li>
+                     <div class="rank">8</div>
+                     <div class="rank-nickname">JTopp</div>
+                     <div class="like-heart-counts">124</div>
+                  </li>
+                  <li>
+                     <div class="rank">9</div>
+                     <div class="rank-nickname">Sudeep</div>
+                     <div class="like-heart-counts">124</div>
+                  </li>
+               </ul>
             </div>
          </div>
       </div>
    </div>
-
-  <link href='css/googlefonts.css' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="css/reset.css">
-  <link rel="stylesheet" type="text/css" href="css/main.css">
 </body>
 </html>

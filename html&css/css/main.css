@@ -185,7 +185,7 @@ h2 {
 .col-1 .songs-list {
   padding: 0px 15px 15px;
 }
-.col-1 img {
+.col-1 .sc-play {
   width: 100%;
 }
 
@@ -243,9 +243,6 @@ h2 {
 .songs-list .countdown-title,
 .songs-list .countdown {
   text-align: center;
-}
-.songs-list .sc-play {
-  width: 100%;
 }
 
 .col-2 {
