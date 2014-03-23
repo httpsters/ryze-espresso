@@ -4,12 +4,6 @@
   box-sizing: border-box;
 }
 
-* {
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  transition: all 0.3s;
-}
-
 body {
   font-family: Arial;
   font-size: 90%;
@@ -57,6 +51,10 @@ h2 {
 .left-sidebar img {
   width: 90px;
 }
+.left-sidebar nav {
+  margin-left: -9px;
+  margin-top: 10px;
+}
 .left-sidebar nav ul li {
   padding: 20px 0;
   padding: 0;
@@ -68,6 +66,16 @@ h2 {
   font-family: 'Lato';
   font-size: 18px;
   font-weight: 300;
+  padding: 10px 12px;
+  display: inline-block;
+}
+.left-sidebar nav ul li a:hover {
+  border: 1px solid #fff;
+  margin: -1px;
+}
+.left-sidebar .active-item {
+  border: 1px solid #fff;
+  margin: -1px;
 }
 
 .content {
@@ -83,6 +91,19 @@ h2 {
 
 .desktop-logo-block {
   height: 165px;
+  text-align: center;
+}
+
+.desktop-logo-block-text {
+  margin: 20px 0 0 190px;
+  font-family: "Oswald";
+  font-weight: 300;
+  font-size: 44px;
+  padding: 20px 20px;
+  border: 3px solid #fff;
+  text-transform: uppercase;
+  color: #fff;
+  width: 36%;
 }
 
 .about {
@@ -278,6 +299,9 @@ h2 {
 }
 .col-2 .new-heart {
   background-position: 50% -24px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
 }
 .col-2 .like {
   text-align: left;
@@ -335,6 +359,7 @@ h2 {
     display: block;
     margin-right: 2.35765%;
     width: 100%;
+    padding: 0 10px;
   }
   .left-sidebar:last-child {
     margin-right: 0;
@@ -344,6 +369,9 @@ h2 {
   }
   .left-sidebar nav ul li {
     display: inline-block;
+  }
+  .left-sidebar nav ul li a {
+    font-size: 20px;
   }
 
   .content {
@@ -360,18 +388,31 @@ h2 {
   }
 }
 @media screen and (max-width: 384px) {
+  .left-sidebar {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+  }
+  .left-sidebar:last-child {
+    margin-right: 0;
+  }
+  .left-sidebar nav {
+    margin-top: 2px;
+    margin-left: 152px;
+  }
   .left-sidebar nav ul li {
     display: block;
     padding: 0;
     margin: 0;
   }
+  .left-sidebar nav ul li a {
+    display: block;
+  }
   .left-sidebar img {
-    width: 140px;
+    width: 150px;
   }
 
-  .upload-song {
-    opacity: 0.9;
-  }
   .upload-song .desc {
     width: 100%;
     padding: 14px;
@@ -404,7 +445,6 @@ h2 {
     width: 100%;
     background: #fff;
     margin-bottom: 25px;
-    opacity: 0.9;
   }
   .col-1:last-child {
     margin-right: 0;
@@ -428,7 +468,6 @@ h2 {
     width: 100%;
     background: #fff;
     margin-bottom: 25px;
-    opacity: 0.9;
   }
   .col-2:last-child {
     margin-right: 0;

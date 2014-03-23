@@ -38,9 +38,9 @@ $visual-grid: true;
 $tablet-portrait: 768px;
 $mobile: 384px;
 
-* {
-   @include transition( all 0.3s );
-}
+// * {
+//    @include transition( all 0.3s );
+// }
 
 body {
    font-family: Arial;
@@ -71,6 +71,11 @@ h2 {
       width: 90px;
    }
 
+   nav {
+      margin-left: -9px;
+      margin-top: 10px;
+   }
+
    nav ul li {
       padding: 20px 0;
       padding: 0;
@@ -83,6 +88,18 @@ h2 {
       font-family: 'Lato';
       font-size: 18px;
       font-weight: 300;
+      padding: 10px 12px;
+      display: inline-block;
+   }
+
+   nav ul li a:hover {
+      border: 1px solid #fff;
+      margin: -1px;
+   }
+
+   .active-item {
+      border: 1px solid #fff;
+      margin: -1px;
    }
 }
 
@@ -93,6 +110,19 @@ h2 {
 
 .desktop-logo-block {
    height: 165px;
+   text-align: center;
+}
+
+.desktop-logo-block-text {
+   margin: 20px 0 0 190px;
+   font-family: "Oswald";
+   font-weight: 300;
+   font-size: 44px;
+   padding: 20px 20px;
+   border: 3px solid #fff;
+   text-transform: uppercase;
+   color: #fff;
+   width: 36%;
 }
 
 .about {
@@ -293,6 +323,7 @@ h2 {
 
    .new-heart {
       background-position: 50% -24px;
+      @include transition( all 0.3s );
    }
 
    .like {
@@ -347,12 +378,19 @@ h2 {
    .left-sidebar {
       @include span-columns(12);
 
+      padding: 0 10px;
+
       img {
          float: left;
       }
 
       nav ul li {
          display: inline-block;
+      }
+
+      nav ul li a {
+         //display: block;
+         font-size: 20px;
       }
    }
 
@@ -367,25 +405,33 @@ h2 {
 
 @include media(max-width $mobile)  {
    .left-sidebar {
+      @include span-columns(12);
+      nav {
+         margin-top: 2px;
+         margin-left: 152px;
+      }
+
       nav ul li {
          display: block;
          padding: 0;
          margin: 0;
       }
 
+      nav ul li a {
+         display: block;
+      }
+
       img {
-         width: 140px;
+         width: 150px;
       }
    }
 
    .upload-song {
-opacity: 0.9;
       .desc {
          width: 100%;
          padding: 14px;
          font-size: 18px;
       }
-
    }
 
    .upload-form {
@@ -416,7 +462,6 @@ opacity: 0.9;
       @include span-columns(12);
       background: #fff;
       margin-bottom: 25px;
-      opacity: 0.9;
    }
 
    .songs-list {
@@ -438,7 +483,6 @@ opacity: 0.9;
       @include span-columns(12);
       background: #fff;
       margin-bottom: 25px;
-      opacity: 0.9;
    }
 
    .col-3 {
