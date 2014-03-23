@@ -25,6 +25,7 @@
   <script src="js/controllers/likectrl.js"></script>
   <script src="js/controllers/submitctrl.js"></script>
   <script src="js/controllers/leaderboardctrl.js"></script>
+  <script src="js/controllers/recentlyplayedctrl.js"></script>
 
   <!-- SoundCloud -->
   <script src="js/lib/soundcloud.js"></script>
@@ -111,52 +112,17 @@
                   </li>
                </ul>
             </div>
-            <div class="col-2">
+            <div class="col-2" ng-controller="RecentlyPlayedCtrl">
                <h2>RECENTLY PLAYED</h2>
                <ul class="songs-list">
                   <li>
                      <div class="track-name">Track Name</div>
                      <div class="like">Like</div>
                   </li>
-                  <li>
+                  <li ng-repeat="song in recentSongs">
                      <div class="title-song-block">
-                        <div class="title-song">A Day in the World</div>
-                        <div class="submit-by">Submitted by <span class="submition-name">JTopp</span></div>
-                     </div>
-                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
-                  </li>
-                  <li>
-                     <div class="title-song-block">
-                        <div class="title-song">Suburbs</div>
-                        <div class="submit-by">Submitted by <span class="submition-name">King George</span></div>
-                     </div>
-                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
-                  </li>
-                  <li>
-                     <div class="title-song-block">
-                        <div class="title-song">Reﬂector</div>
-                        <div class="submit-by">Submitted by <span class="submition-name">Alexey</span></div>
-                     </div>
-                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
-                  </li>
-                  <li>
-                     <div class="title-song-block">
-                        <div class="title-song">Neighbourhood #1</div>
-                        <div class="submit-by">Submitted by <span class="submition-name">Sudeep</span></div>
-                     </div>
-                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
-                  </li>
-                  <li>
-                     <div class="title-song-block">
-                        <div class="title-song">Coldplay - Paradise</div>
-                        <div class="submit-by">Submitted by <span class="submition-name">JTopp</span></div>
-                     </div>
-                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
-                  </li>
-                  <li>
-                     <div class="title-song-block">
-                        <div class="title-song">Coldplay</div>
-                        <div class="submit-by">Submitted by <span class="submition-name">JTopp</span></div>
+                       <div class="title-song">{{ song.title }}</div>
+                        <div class="submit-by">Submitted by <span class="submition-name">{{ song.added_by }}</span></div>
                      </div>
                      <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
                   </li>
@@ -170,8 +136,8 @@
                  <div class="rank-nickname-title">Nickname</div>
                  <div class="like-heart-counts-title">Likes</div>
                 </li>
-                <li ng-repeat="user in users">
-                  <div class="rank">9</div>
+                <li ng-repeat="user in users | orderBy:'-likes'">
+                  <div class="rank">{{ $index+1 }}</div>
                   <div class="rank-nickname">{{ user.username }}</div>
                   <div class="like-heart-counts">{{ user.likes }}</div>
                 </li>
