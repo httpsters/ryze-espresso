@@ -50,7 +50,6 @@ h2 {
   display: block;
   margin-right: 2.35765%;
   width: 14.70196%;
-  background: red;
 }
 .left-sidebar:last-child {
   margin-right: 0;
@@ -62,6 +61,13 @@ h2 {
   padding: 20px 0;
   padding: 0;
   margin: 0;
+}
+.left-sidebar nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Lato';
+  font-size: 18px;
+  font-weight: 300;
 }
 
 .content {
@@ -440,5 +446,53 @@ h2 {
   }
   .col-3:last-child {
     margin-right: 0;
+  }
+}
+.something {
+  position: absolute;
+  display: none;
+  height: 50px;
+  width: 600px;
+  background: red;
+}
+
+.something.active {
+  display: block;
+  animation: goDown 8s 1;
+  -webkit-animation: goDown 8s 1;
+}
+
+@keyframes goDown {
+  0% {
+    top: 0px;
+  }
+
+  30% {
+    top: 50px;
+  }
+
+  70% {
+    top: 50px;
+  }
+
+  100% {
+    top: 0px;
+  }
+}
+@-webkit-keyframes goDown {
+  0% {
+    top: 0px;
+  }
+
+  30% {
+    top: 50px;
+  }
+
+  70% {
+    top: 50px;
+  }
+
+  100% {
+    top: 0px;
   }
 }
