@@ -127,7 +127,8 @@ h2 {
 
 .desktop-logo-block-text {
    position: relative;
-   margin: 20px 0 0 190px;
+   margin-top: 20px;
+   display: inline-block;
    font-family: "Oswald";
    font-weight: 300;
    font-size: 44px;
@@ -185,8 +186,10 @@ h2 {
 .upload-form {
       padding: 3.4026%;
       background: #fff;
+      overflow: hidden;
       //display inline-block element's space fix
       font-size: 0;
+      position: relative;
 
    label {
       font-size: 13px;
@@ -242,7 +245,102 @@ h2 {
       text-align: center;
       cursor: pointer;
       color: #fff;
+      outline: none;
    }
+}
+
+#conformation-block {
+   position: absolute;
+   display: none;
+   background: #fff;
+   height: 100%;
+   width: 100%;
+   top: -100%;
+   //top:0;
+   left: 0;
+   color: #000;
+   padding: 19px 25px;
+
+   p {
+      font-family: 'Oswald';
+      font-weight: 300;
+   }
+}
+
+.left-conf-content {
+   display: inline-block;
+   width: (360/799)*100%;
+   vertical-align: top;
+   text-align: right;
+   line-height: 1.2;
+   border-right: 1px solid #C2C2C2;
+   margin-right: 25px;
+
+   img {
+      width: 90px;
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 25px;
+   }
+
+   .great-block {
+      display: inline-block;
+      visibility: top;
+      text-align: center;
+      margin-top: 5px;
+      font-size: 32px;
+      color: #BB7D4C;
+      text-transform: uppercase;
+   }
+
+   .great-block p + p {
+      margin: 0;
+      font-size: 32px;
+   }
+}
+
+.right-conf-content {
+   display: inline-block;
+   width: 45%;
+   vertical-align: top;
+
+   .right-conf-content__added {
+      text-transform: initial;
+      font-size: 26px;
+      margin-bottom: 16px;
+      margin-top: 10px;
+      color: #6D6D6D;
+   }
+
+   .conf-song-num {
+      font-size: 28px;
+      text-transform: uppercase;
+      color: #6D6D6D;
+
+      span {
+         color: #BB7D4C;
+      }
+   }
+}
+
+.conformation-active {
+   display: block !important;
+   animation: goDown 5s 1 !important;
+   -webkit-animation: goDown 5s 1 !important;
+}
+
+@keyframes goDown{
+   0%   {top: -100%;}
+   10%  {top: 0%;}
+   90%  {top: 0%;}
+   100% {top: -100%}
+}
+
+@-webkit-keyframes goDown{
+   0%   {top: -100%;}
+   10%  {top: 0%;}
+   90%  {top: 0%;}
+   100% {top: -100%}
 }
 
 .three-col {
@@ -496,6 +594,7 @@ h2 {
    }
 
    .upload-form {
+      position: relative;
 
       .sc-url-block {
          margin-top: 10px;
@@ -511,6 +610,41 @@ h2 {
          margin-top: 14px;
          margin-bottom: 5px;
          width: 38.6458%;
+         outline: none;
+      }
+   }
+
+   .left-conf-content {
+      height: 100%;
+      padding-right: 25px;
+      text-align: center;
+
+      img {
+         margin: 0;
+      }
+
+      .great-block {
+         margin-top: 20px;
+         margin-bottom: 22px;
+         font-size: 28px;
+      }
+
+      .great-block p + p {
+         font-size: 28px;
+      }
+   }
+
+   .right-conf-content {
+
+      .right-conf-content__added {
+         line-height: 1.4em;
+         margin: 12px 0 28px;
+      }
+
+      .conf-song-num {
+         font-size: 28px;
+         line-height: 1.2em;
+         text-align: center;
       }
    }
 
@@ -553,30 +687,4 @@ h2 {
       opacity: 0.9;
       height: 400px;
    }
-}
-
-.something{
-   position: absolute;
-   display: none;
-   height: 50px;
-   width: 600px;
-   background: red;
-}
-.something.active{
-   display: block;
-   animation: goDown 8s 1;
-   -webkit-animation: goDown 8s 1;
-}
-@keyframes goDown{
-   0%   {top: 0px;}
-   30%  {top: 50px;}
-   70%  {top: 50px;}
-   100% {top: 0px;}
-}
-
-@-webkit-keyframes goDown{
-   0%   {top: 0px;}
-   30%  {top: 50px;}
-   70%  {top: 50px;}
-   100% {top: 0px;}
 }

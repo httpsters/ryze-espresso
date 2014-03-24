@@ -35,11 +35,14 @@
   <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
 
-  <script type="text/javascript">
+   <script type="text/javascript">
       function changeHeart(obj) {
          obj.className = "like-heart new-heart";
       }
-  </script>
+      function conformation() {
+         document.getElementById('conformation-block').className = "conformation-active";
+      }
+   </script>
 </head>
 <body>
    <div class="wrapper">
@@ -75,7 +78,20 @@
                We want to share our love of music with our fellow coffee drinkers. Share your favourite songs and we play them in the café for the rest Rise to hear.  Upload and vote for the music that matters to you.
             </p>
             <div class="upload-form" ng-controller="SubmitCtrl">
-               <form>
+              <div id="conformation-block" class="">
+                    <div class="left-conf-content">
+                       <div class="great-block">
+                          <p>Great</p>
+                          <p>choice !</p>
+                       </div>
+                       <img src="images/rock.jpg" alt="">
+                    </div>
+                    <div class="right-conf-content">
+                       <p class="right-conf-content__added">Your song was added to RISE playlist.</p>
+                       <p class="conf-song-num">Your song <span>#2</span></p>
+                    </div>
+                </div>
+                <form>
                   <div class="sc-url-block">
                      <label>Find your track on souncloud and paste the URL below</label>
                      <input class="sc-url" type="text" ng-model="newsong.url" placeholder="Paste your soundcloud URL here">
@@ -86,9 +102,9 @@
                   </div>
                   <div class="submit-url-block">
                      <label></label>
-                     <button class="submit-url" ng-click="submit(newsong)">Submit</button>
+                     <button class="submit-url" ng-click="submit(newsong)" onclick="conformation()" type="button">Submit</button>
                   </div>
-               </form>
+                </form>
             </div>
          </div>
          <div class="three-col">
