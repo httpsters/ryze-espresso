@@ -221,6 +221,11 @@ h2 {
   outline-color: orange;
   font-family: 'Lato';
   font-size: 18px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
   font-weight: 300;
 }
 .upload-form .nickname-block {
@@ -238,6 +243,11 @@ h2 {
   outline-color: orange;
   font-family: 'Lato';
   font-size: 18px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
   font-weight: 300;
 }
 .upload-form .submit-url-block {
@@ -540,6 +550,15 @@ h2 {
 }
 
 @media screen and (max-width: 768px) {
+  body {
+    background: #030305 url("../images/mobile-bg.jpg") center top no-repeat fixed;
+    -webkit-background-size: 768px 768px;
+    -moz-background-size: 768px 768px;
+    -o-background-size: 768px 768px;
+    background-size: 768px 768px;
+    width: 100%;
+  }
+
   .left-sidebar {
     float: left;
     display: block;
@@ -574,6 +593,15 @@ h2 {
   }
 }
 @media screen and (max-width: 384px) {
+  body {
+    background: #030305 url("../images/mobile-bg.jpg") center top no-repeat fixed;
+    -webkit-background-size: 768px 768px;
+    -moz-background-size: 768px 768px;
+    -o-background-size: 768px 768px;
+    background-size: 768px 768px;
+    width: 100%;
+  }
+
   .left-sidebar {
     float: left;
     display: block;
@@ -585,7 +613,7 @@ h2 {
   }
   .left-sidebar nav {
     margin-top: 2px;
-    margin-left: 152px;
+    margin-left: 144px;
   }
   .left-sidebar nav ul li {
     display: block;
@@ -597,6 +625,7 @@ h2 {
   }
   .left-sidebar img {
     width: 151px;
+    margin-left: -20px;
   }
 
   .about {
@@ -727,7 +756,6 @@ h2 {
     width: 100%;
     background: #fff;
     margin-bottom: 25px;
-    opacity: 0.9;
     height: 400px;
   }
   .col-3:last-child {

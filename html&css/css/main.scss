@@ -10,10 +10,17 @@
 }
 
 @mixin background-size($value) {
-   -webkit-background-size: cover;
-      -moz-background-size: cover;
-        -o-background-size: cover;
-           background-size: cover;
+   -webkit-background-size: $value;
+      -moz-background-size: $value;
+        -o-background-size: $value;
+           background-size: $value;
+}
+
+@mixin background-size-mobile($value1, $value2) {
+   -webkit-background-size: $value1 $value2;
+      -moz-background-size: $value1 $value2;
+        -o-background-size: $value1 $value2;
+           background-size: $value1 $value2;
 }
 
 @mixin text-shadow($x, $y, $blur, $color){
@@ -29,6 +36,8 @@
    outline-color: orange;
    font-family: 'Lato';
    font-size: 18px;
+   @include border-radius(0);
+   -webkit-appearance: none;
 }
 
 $content-height: 400px;
@@ -512,6 +521,12 @@ h2 {
 
 // Tablet
 @include media(max-width $tablet-portrait) {
+   body {
+      background: #030305 url("../images/mobile-bg.jpg") center top no-repeat fixed;
+      @include background-size-mobile(768px, 768px);
+      width: 100%;
+   }
+
    .left-sidebar {
       @include span-columns(12);
 
@@ -541,11 +556,17 @@ h2 {
 }
 
 @include media(max-width $mobile)  {
+   body {
+      background: #030305 url("../images/mobile-bg.jpg") center top no-repeat fixed;
+      @include background-size-mobile(768px, 768px);
+      width: 100%;
+   }
+
    .left-sidebar {
       @include span-columns(12);
       nav {
          margin-top: 2px;
-         margin-left: 152px;
+         margin-left: 144px;
       }
 
       nav ul li {
@@ -560,6 +581,7 @@ h2 {
 
       img {
          width: 151px;
+         margin-left: -20px;
       }
    }
 
@@ -684,7 +706,6 @@ h2 {
       @include span-columns(12);
       background: #fff;
       margin-bottom: 25px;
-      opacity: 0.9;
       height: 400px;
    }
 }
