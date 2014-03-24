@@ -113,6 +113,18 @@
                   <!-- <img src="images/play.jpg" alt=""> -->
                   <iframe id="sc-widget" width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/134766478"></iframe>
                 </div>
+               <h2>songs test</h2>
+               <table>
+                <tr ng-repeat="song in upcomingSongs">
+                  <td>
+                    {{ song.url }}
+                  </td>
+                  <td>
+                    {{song.title}}
+                  </td>
+                </tr>
+              </table>
+              
                <h2>UPCOMING SONGS</h2>
                <ul class="songs-list">
                   <li>
