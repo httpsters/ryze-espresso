@@ -39,7 +39,7 @@ class SongQueue:
             next_id = next_queue.pop(0) # get current song off the front
             result = firebase.put(config.QUEUE, config.NEXT, next_queue)
 
-        result = firebase.put(config.QUEUE, config.CURRENT, int(next_id))
+        result = firebase.put(config.QUEUE, config.CURRENT, next_id)
         song_link = self.lookup(next_id).get('url')
         result = firebase.put('nowplaying', 'cur', song_link)
         return result
@@ -51,13 +51,13 @@ class SongQueue:
         # generate a list of (song_id, song_score) pairs
         scores = [(song_id, get_score(song_id)) for song_id in songs.keys()]
         max_score = max(scores, key=lambda song: float(song[1])) # get max score
-        return int(max_score[0]) # return song ID of the max score
+        return max_score[0] # return song ID of the max score
 
     def _song_score(self, song):
         ''' given a song, return its 'score', which will be used to pick the
         song to be played next if nothing is on the queue '''
         if song is None: return -1
-        now = int(time.time())
+        now = int(time.time() * 1000)
         # get the numbers
         time_since_song_added = now - int(song.get('date_added', now))
         time_since_last_liked = now - int(song.get('last_liked', now))

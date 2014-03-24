@@ -38,9 +38,9 @@ $visual-grid: true;
 $tablet-portrait: 768px;
 $mobile: 384px;
 
-* {
-   @include transition( all 0.3s );
-}
+// * {
+//    @include transition( all 0.3s );
+// }
 
 body {
    font-family: Arial;
@@ -66,16 +66,40 @@ h2 {
 
 .left-sidebar {
    @include span-columns(2);
-   background: red;
 
    img {
       width: 90px;
+   }
+
+   nav {
+      margin-left: -9px;
+      margin-top: 10px;
    }
 
    nav ul li {
       padding: 20px 0;
       padding: 0;
       margin: 0;
+   }
+
+   nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Lato';
+      font-size: 18px;
+      font-weight: 300;
+      padding: 10px 12px;
+      display: inline-block;
+   }
+
+   nav ul li a:hover {
+      border: 1px solid #fff;
+      margin: -1px;
+   }
+
+   .active-item {
+      border: 1px solid #fff;
+      margin: -1px;
    }
 }
 
@@ -85,14 +109,66 @@ h2 {
 }
 
 .desktop-logo-block {
-   height: 165px;
+   height: 135px;
+   text-align: center;
+}
+
+.desktop-logo-block-text:before {
+   content: "";
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background: #6B6B6B;
+   top: 0;
+   left: 0;
+   opacity: 0.3;
+   z-index: -1;
+}
+
+.desktop-logo-block-text {
+   position: relative;
+   margin-top: 20px;
+   display: inline-block;
+   font-family: "Oswald";
+   font-weight: 300;
+   font-size: 44px;
+   padding: 20px 20px;
+   border: 3px solid #fff;
+   text-transform: uppercase;
+   color: #fff;
+   width: 36%;
+   z-index: 10;
 }
 
 .about {
-   height: 150px;
+   @include outer-container;
+   margin-bottom: 18px;
+
+   .about-text {
+      @include span-columns(6);
+      font-family: "Oswald";
+      font-size: 32px;
+      color: #fff;
+      font-weight: 300;
+      line-height: 1.3em;
+   }
+
+   .about-pic-desc {
+      @include span-columns(6);
+      //background: url('../images/icons.svg') bottom right no-repeat;
+      // width: (397/849)*100%;
+      height: 115px;
+      text-align: right;
+      margin-top: 20px;
+
+      img {
+         width: 340px;
+      }
+   }
 }
 
 .upload-song {
+   @include outer-container;
    overflow: hidden;
    border-top: 1px solid #fff;
 
@@ -110,8 +186,10 @@ h2 {
 .upload-form {
       padding: 3.4026%;
       background: #fff;
+      overflow: hidden;
       //display inline-block element's space fix
       font-size: 0;
+      position: relative;
 
    label {
       font-size: 13px;
@@ -167,10 +245,106 @@ h2 {
       text-align: center;
       cursor: pointer;
       color: #fff;
+      outline: none;
    }
 }
 
+#conformation-block {
+   position: absolute;
+   display: none;
+   background: #fff;
+   height: 100%;
+   width: 100%;
+   top: -100%;
+   //top:0;
+   left: 0;
+   color: #000;
+   padding: 19px 25px;
+
+   p {
+      font-family: 'Oswald';
+      font-weight: 300;
+   }
+}
+
+.left-conf-content {
+   display: inline-block;
+   width: (360/799)*100%;
+   vertical-align: top;
+   text-align: right;
+   line-height: 1.2;
+   border-right: 1px solid #C2C2C2;
+   margin-right: 25px;
+
+   img {
+      width: 90px;
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 25px;
+   }
+
+   .great-block {
+      display: inline-block;
+      visibility: top;
+      text-align: center;
+      margin-top: 5px;
+      font-size: 32px;
+      color: #BB7D4C;
+      text-transform: uppercase;
+   }
+
+   .great-block p + p {
+      margin: 0;
+      font-size: 32px;
+   }
+}
+
+.right-conf-content {
+   display: inline-block;
+   width: 45%;
+   vertical-align: top;
+
+   .right-conf-content__added {
+      text-transform: initial;
+      font-size: 26px;
+      margin-bottom: 16px;
+      margin-top: 10px;
+      color: #6D6D6D;
+   }
+
+   .conf-song-num {
+      font-size: 28px;
+      text-transform: uppercase;
+      color: #6D6D6D;
+
+      span {
+         color: #BB7D4C;
+      }
+   }
+}
+
+.conformation-active {
+   display: block !important;
+   animation: goDown 5s 1 !important;
+   -webkit-animation: goDown 5s 1 !important;
+}
+
+@keyframes goDown{
+   0%   {top: -100%;}
+   10%  {top: 0%;}
+   90%  {top: 0%;}
+   100% {top: -100%}
+}
+
+@-webkit-keyframes goDown{
+   0%   {top: -100%;}
+   10%  {top: 0%;}
+   90%  {top: 0%;}
+   100% {top: -100%}
+}
+
 .three-col {
+   @include outer-container;
    overflow: hidden;
    margin-top: 18px;
    margin-bottom: 100px;
@@ -188,7 +362,7 @@ h2 {
       padding: 0px 15px 15px;
    }
 
-   img {
+   .sc-play {
       width: 100%;
    }
 }
@@ -260,10 +434,6 @@ h2 {
    .countdown {
       text-align: center;
    }
-
-   .sc-play {
-      width: 100%;
-   }
 }
 
 .col-2 {
@@ -290,6 +460,7 @@ h2 {
 
    .new-heart {
       background-position: 50% -24px;
+      @include transition( all 0.3s );
    }
 
    .like {
@@ -344,12 +515,19 @@ h2 {
    .left-sidebar {
       @include span-columns(12);
 
+      padding: 0 10px;
+
       img {
          float: left;
       }
 
       nav ul li {
          display: inline-block;
+      }
+
+      nav ul li a {
+         //display: block;
+         font-size: 20px;
       }
    }
 
@@ -364,28 +542,59 @@ h2 {
 
 @include media(max-width $mobile)  {
    .left-sidebar {
+      @include span-columns(12);
+      nav {
+         margin-top: 2px;
+         margin-left: 152px;
+      }
+
       nav ul li {
          display: block;
          padding: 0;
          margin: 0;
       }
 
+      nav ul li a {
+         display: block;
+      }
+
       img {
-         width: 140px;
+         width: 151px;
+      }
+   }
+
+   .about {
+      margin-bottom: 10px;
+
+
+      .about-text {
+         @include span-columns(12);
+         padding: 28px 14px 10px;
+         font-size: 30px;
+      }
+
+      .about-pic-desc {
+         @include span-columns(12);
+         text-align: center;
+         margin: 20px 0 0;
+         padding: 0 14px;
+
+         img {
+            width: 100%;
+         }
       }
    }
 
    .upload-song {
-opacity: 0.9;
       .desc {
          width: 100%;
          padding: 14px;
          font-size: 18px;
       }
-
    }
 
    .upload-form {
+      position: relative;
 
       .sc-url-block {
          margin-top: 10px;
@@ -401,6 +610,41 @@ opacity: 0.9;
          margin-top: 14px;
          margin-bottom: 5px;
          width: 38.6458%;
+         outline: none;
+      }
+   }
+
+   .left-conf-content {
+      height: 100%;
+      padding-right: 25px;
+      text-align: center;
+
+      img {
+         margin: 0;
+      }
+
+      .great-block {
+         margin-top: 20px;
+         margin-bottom: 22px;
+         font-size: 28px;
+      }
+
+      .great-block p + p {
+         font-size: 28px;
+      }
+   }
+
+   .right-conf-content {
+
+      .right-conf-content__added {
+         line-height: 1.4em;
+         margin: 12px 0 28px;
+      }
+
+      .conf-song-num {
+         font-size: 28px;
+         line-height: 1.2em;
+         text-align: center;
       }
    }
 
@@ -413,7 +657,6 @@ opacity: 0.9;
       @include span-columns(12);
       background: #fff;
       margin-bottom: 25px;
-      opacity: 0.9;
    }
 
    .songs-list {
@@ -435,7 +678,6 @@ opacity: 0.9;
       @include span-columns(12);
       background: #fff;
       margin-bottom: 25px;
-      opacity: 0.9;
    }
 
    .col-3 {

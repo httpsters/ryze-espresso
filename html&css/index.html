@@ -15,6 +15,9 @@
       function changeHeart(obj) {
          obj.className = "like-heart new-heart";
       }
+      function conformation(obj) {
+         document.getElementById('conformation-block').className = "conformation-active";
+      }
    </script>
 
    <link rel="stylesheet" type="text/css" href="css/reset.css">
@@ -36,13 +39,37 @@
          </nav>
       </div>
       <div class="content">
-         <div class="desktop-logo-block"></div>
-         <div class="about"></div>
+         <div class="desktop-logo-block">
+            <div class="desktop-logo-block-text">Sound of RISE</div>
+         </div>
+         <div class="about">
+            <div class="about-text">
+               <p>Conversations need a cup of coﬀee,</p>
+               <p>Coffee needs music,</p>
+               <p>Rise needs you</p>
+            </div>
+            <div class="about-pic-desc">
+               <img src="images/icons.svg" alt="">
+            </div>
+         </div>
          <div class="upload-song">
             <p class="desc">
                We want to share our love of music with our fellow coffee drinkers. Share your favourite songs and we play them in the café for the rest Rise to hear.  Upload and vote for the music that matters to you.
             </p>
-            <div class="upload-form">
+            <div class="upload-form" ng-controller="SubmitCtrl">
+              <div id="conformation-block" class="">
+                  <div class="left-conf-content">
+                     <div class="great-block">
+                        <p>Great</p>
+                        <p>choice !</p>
+                     </div>
+                     <img src="images/rock.jpg" alt="">
+                  </div>
+                  <div class="right-conf-content">
+                     <p class="right-conf-content__added">Your song was added to RISE playlist.</p>
+                     <p class="conf-song-num">Your song <span>#2</span></p>
+                  </div>
+              </div>
                <form action="">
                   <div class="sc-url-block">
                      <label>Find your track on souncloud and paste the URL below</label>
@@ -54,7 +81,8 @@
                   </div>
                   <div class="submit-url-block">
                      <label></label>
-                     <input class="submit-url" type="submit">
+                     <!-- <input onclick="conformation(this)" class="submit-url" type="submit"> -->
+                     <button class="submit-url" onclick="conformation(this)" type="button" ng-click="submit(newsong)">Submit</button>
                   </div>
                </form>
             </div>
@@ -62,7 +90,7 @@
          <div class="three-col">
             <div class="col-1">
                <div class="sc-play">
-                  <img src="images/play.jpg" alt="">
+                  <img style="width:100%;" src="images/play.jpg" alt="">
                </div>
                <h2>UPCOMING SONGS</h2>
                <ul class="songs-list">

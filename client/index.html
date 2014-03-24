@@ -8,8 +8,9 @@
 
   <title>Sound of RISE</title>
 
-  
-  
+   <link href='http://fonts.googleapis.com/css?family=Oswald:300, 400' rel='stylesheet' type='text/css'>
+   <link href='http://fonts.googleapis.com/css?family=Lato:300, 400, 700' rel='stylesheet' type='text/css'>
+
   <!-- libs -->
   <script src="js/lib/firebase.js"></script>
   <script src="js/lib/angular.js"></script>
@@ -23,9 +24,25 @@
   <script src="js/controllers/playerctrl.js"></script>
   <script src="js/controllers/likectrl.js"></script>
   <script src="js/controllers/submitctrl.js"></script>
+  <script src="js/controllers/leaderboardctrl.js"></script>
+  <script src="js/controllers/recentlyplayedctrl.js"></script>
 
   <!-- SoundCloud -->
   <script src="js/lib/soundcloud.js"></script>
+
+  <!-- CSS -->
+  <!-- <link href='css/googlefonts.css' rel='stylesheet' type='text/css'> -->
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+
+   <script type="text/javascript">
+      function changeHeart(obj) {
+         obj.className = "like-heart new-heart";
+      }
+      function conformation() {
+         document.getElementById('conformation-block').className = "conformation-active";
+      }
+   </script>
 </head>
 <body>
    <div class="wrapper">
@@ -38,19 +55,43 @@
                <li><a href="">Menu</a></li>
                <li><a href="">Contact</a></li>
                <li><a href="">Press</a></li>
-               <li><a href="">Sound of RISE</a></li>
+               <li><a class="active-item" href="">Sound of RISE</a></li>
             </ul>
          </nav>
       </div>
       <div class="content">
-         <div class="desktop-logo-block"></div>
-         <div class="about"></div>
+         <div class="desktop-logo-block">
+            <div class="desktop-logo-block-text">Sound of RISE</div>
+         </div>
+         <div class="about">
+            <div class="about-text">
+               <p>Conversations need a cup of coﬀee,</p>
+               <p>Coffee needs music,</p>
+               <p>Rise needs you</p>
+            </div>
+            <div class="about-pic-desc">
+               <img src="images/icons.svg" alt="">
+            </div>
+         </div>
          <div class="upload-song">
             <p class="desc">
                We want to share our love of music with our fellow coffee drinkers. Share your favourite songs and we play them in the café for the rest Rise to hear.  Upload and vote for the music that matters to you.
             </p>
             <div class="upload-form" ng-controller="SubmitCtrl">
-               <form>
+              <div id="conformation-block" class="">
+                    <div class="left-conf-content">
+                       <div class="great-block">
+                          <p>Great</p>
+                          <p>choice !</p>
+                       </div>
+                       <img src="images/rock.jpg" alt="">
+                    </div>
+                    <div class="right-conf-content">
+                       <p class="right-conf-content__added">Your song was added to RISE playlist.</p>
+                       <p class="conf-song-num">Your song <span>#2</span></p>
+                    </div>
+                </div>
+                <form>
                   <div class="sc-url-block">
                      <label>Find your track on souncloud and paste the URL below</label>
                      <input class="sc-url" type="text" ng-model="newsong.url" placeholder="Paste your soundcloud URL here">
@@ -61,15 +102,17 @@
                   </div>
                   <div class="submit-url-block">
                      <label></label>
-                     <button class="submit-url" ng-click="submit(newsong)"></button>
+                     <button class="submit-url" ng-click="submit(newsong)" onclick="conformation()" type="button">Submit</button>
                   </div>
-               </form>
+                </form>
             </div>
          </div>
          <div class="three-col">
             <div class="col-1" ng-controller="PlayerCtrl">
-               <!-- <img src="images/play.jpg" alt=""> -->
-                <iframe id="sc-widget" width="269" height="253" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/134766478"></iframe>
+                <div class="sc-play">
+                  <!-- <img src="images/play.jpg" alt=""> -->
+                  <iframe id="sc-widget" width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/134766478"></iframe>
+                </div>
                <h2>songs test</h2>
                <table>
                 <tr ng-repeat="song in upcomingSongs">
@@ -81,7 +124,8 @@
                   </td>
                 </tr>
               </table>
-              <h2>UPCOMING SONGS</h2>
+              
+               <h2>UPCOMING SONGS</h2>
                <ul class="songs-list">
                   <li>
                      <div class="track-name">Track Name</div>
@@ -93,7 +137,7 @@
                         <div class="title-song">Happy</div>
                         <div class="submit-by">Submitted by <span class="submition-name">JTopp</span></div>
                      </div>
-                     <a href="#" class="like-heart"></a>
+                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
                      <div class="countdown"><span class="countdown-time">3.43</span> mins</div>
                   </li>
                   <li>
@@ -101,71 +145,44 @@
                         <div class="title-song">Dark Horse</div>
                         <div class="submit-by">Submitted by <span class="submition-name">King George</span></div>
                      </div>
-                     <a href="#" class="like-heart"></a>
+                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
                      <div class="countdown"><span class="countdown-time">5:27</span> mins</div>
                   </li>
                </ul>
             </div>
-            <div class="col-2">
+            <div class="col-2" ng-controller="RecentlyPlayedCtrl">
                <h2>RECENTLY PLAYED</h2>
                <ul class="songs-list">
                   <li>
                      <div class="track-name">Track Name</div>
                      <div class="like">Like</div>
                   </li>
-                  <li>
+                  <li ng-repeat="song in recentSongs">
                      <div class="title-song-block">
-                        <div class="title-song">A Day in the World</div>
-                        <div class="submit-by">Submitted by <span class="submition-name">JTopp</span></div>
+                       <div class="title-song">{{ song.title }}</div>
+                        <div class="submit-by">Submitted by <span class="submition-name">{{ song.added_by }}</span></div>
                      </div>
-                     <a href="#" class="like-heart"></a>
-                  </li>
-                  <li>
-                     <div class="title-song-block">
-                        <div class="title-song">Suburbs</div>
-                        <div class="submit-by">Submitted by <span class="submition-name">King George</span></div>
-                     </div>
-                     <a href="#" class="like-heart"></a>
-                  </li>
-                  <li>
-                     <div class="title-song-block">
-                        <div class="title-song">Reﬂector</div>
-                        <div class="submit-by">Submitted by <span class="submition-name">Alexey</span></div>
-                     </div>
-                     <a href="#" class="like-heart"></a>
-                  </li>
-                  <li>
-                     <div class="title-song-block">
-                        <div class="title-song">Neighbourhood #1</div>
-                        <div class="submit-by">Submitted by <span class="submition-name">Sudeep</span></div>
-                     </div>
-                     <a href="#" class="like-heart"></a>
-                  </li>
-                  <li>
-                     <div class="title-song-block">
-                        <div class="title-song">Coldplay - Paradise</div>
-                        <div class="submit-by">Submitted by <span class="submition-name">JTopp</span></div>
-                     </div>
-                     <a href="#" class="like-heart"></a>
-                  </li>
-                  <li>
-                     <div class="title-song-block">
-                        <div class="title-song">Coldplay</div>
-                        <div class="submit-by">Submitted by <span class="submition-name">JTopp</span></div>
-                     </div>
-                     <a href="#" class="like-heart"></a>
+                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
                   </li>
                </ul>
             </div>
-            <div class="col-3">
+            <div class="col-3" ng-controller="LeaderboardCtrl">
                <h2>LEADER BOARD</h2>
+               <ul class="songs-list">
+               <li>
+                 <div class="rank-name-title">Rank</div>
+                 <div class="rank-nickname-title">Nickname</div>
+                 <div class="like-heart-counts-title">Likes</div>
+                </li>
+                <li ng-repeat="user in users | orderBy:'-likes'">
+                  <div class="rank">{{ $index+1 }}</div>
+                  <div class="rank-nickname">{{ user.username }}</div>
+                  <div class="like-heart-counts">{{ user.likes }}</div>
+                </li>
+              </ul>
             </div>
          </div>
       </div>
    </div>
-
-  <link href='css/googlefonts.css' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="css/reset.css">
-  <link rel="stylesheet" type="text/css" href="css/main.css">
 </body>
 </html>
