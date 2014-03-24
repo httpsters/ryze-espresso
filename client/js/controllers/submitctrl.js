@@ -1,8 +1,8 @@
 angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, $firebase, scService) {
-
 	var songsRef = new Firebase("https://shining-fire-6877.firebaseio.com/songs");
-	$scope.allSongs = $firebase(songsRef);
-
+	var userSongsRef = new Firebase("https://shining-fire-6877.firebaseio.com/queue/next");
+    $scope.allSongs = $firebase(songsRef);
+    $scope.userSongs = $firebase(userSongsRef);
 	$scope.submit = function(newsong) {
 
 		// resolve song url with soudcloud api
@@ -17,9 +17,27 @@ angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, 
     trackPromise.then(function(resolvedSong) {
        	//$scope.resolvedSong = resolvedSong;
 		
-		console.log('submit ctrl sc resolve track: ');
+		console.log('submit ctrl adding resolved track: ');
 		console.log('   title: ',resolvedSong.title, 'duration: ', resolvedSong.duration);
 		console.log('   username: ', newsong.submitter);
+
+		var song = {
+			time_added: new Date().getTime(),
+			added_by: newsong.submitter,
+			likes: 1,
+			last_liked: new Date().getTime(),
+			duration: resolvedSong.duration,
+			title: resolvedSong.title,
+			play_count: 0,
+			url: newsong.url,
+			last_played: 0,
+		}
+
+		$scope.allSongs.$add(song).then(function(ref) {
+			// add id of new song to user song queue
+  			$scope.userSongs.$add(ref.name());
+		});
+		
     },
     function(e) {
     	console.log(e);

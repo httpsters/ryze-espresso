@@ -1,18 +1,22 @@
 angular.module('riseApp.controllers').controller("PlayerCtrl", function($scope, $firebase) {
-	var nowplaying_ref = new Firebase("https://shining-fire-6877.firebaseio.com/nowplaying");
-	var queue_ref = new Firebase("https://shining-fire-6877.firebaseio.com/queue/")
-	
+	var queueRef = new Firebase("https://shining-fire-6877.firebaseio.com/queue");
+	var songsRef = new Firebase("https://shining-fire-6877.firebaseio.com/songs");
+    $scope.upcomingSongs = $firebase(queueRef);
 	//$scope.nowplaying = $firebase(nowplaying_ref);
 
 	var widgetIframe = document.getElementById('sc-widget');
 	var widget       = SC.Widget(widgetIframe);
 
-  	nowplaying_ref.on('value', function(dataSnapshot) {
-		console.log('ds.cur',dataSnapshot.val().cur); // subset of the returned value
-		
-		var newSoundUrl = dataSnapshot.val().cur;//'http://api.soundcloud.com/tracks/' + value.cur;
-		$scope.nowplaying = newSoundUrl;
-		widget.load(newSoundUrl, {
+	// new current song handler
+	// plays new song as set by backend streaming
+  	queueRef.child('cur').on('value', function(dataSnapshot) {
+  		var songid = dataSnapshot.val();
+		console.log('current song firebaase id: ',songid);
+		// get url for song by id
+		var songurl = $firebase(songsRef.child(child(songid)).url;
+		console.log('songurl: ',songurl);
+
+		widget.load(songurl, {
 			auto_play: true,
 			show_artwork: true,
 			visual: true,

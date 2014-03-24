@@ -70,7 +70,18 @@
             <div class="col-1" ng-controller="PlayerCtrl">
                <!-- <img src="images/play.jpg" alt=""> -->
                 <iframe id="sc-widget" width="269" height="253" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/134766478"></iframe>
-               <h2>UPCOMING SONGS</h2>
+               <h2>songs test</h2>
+               <table>
+                <tr ng-repeat="song in upcomingSongs">
+                  <td>
+                    {{ song.url }}
+                  </td>
+                  <td>
+                    {{song.title}}
+                  </td>
+                </tr>
+              </table>
+              <h2>UPCOMING SONGS</h2>
                <ul class="songs-list">
                   <li>
                      <div class="track-name">Track Name</div>
