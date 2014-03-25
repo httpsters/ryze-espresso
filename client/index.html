@@ -157,12 +157,12 @@
                      <div class="track-name">Track Name</div>
                      <div class="like">Like</div>
                   </li>
-                  <li ng-repeat="song in recentSongs">
+                  <li ng-repeat="(id, song) in recentSongs">
                      <div class="title-song-block">
                        <div class="title-song">{{ song.title }}</div>
                         <div class="submit-by">Submitted by <span class="submition-name">{{ song.added_by }}</span></div>
                      </div>
-                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
+                     <a onclick="changeHeart(this)" class="like-heart" ng-click="likeSong(id)"></a>
                   </li>
                </ul>
             </div>
