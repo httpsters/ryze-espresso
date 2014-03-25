@@ -2,14 +2,14 @@ angular.module('riseApp.controllers').controller("RecentlyPlayedCtrl", function(
     url = "https://shining-fire-6877.firebaseio.com";
     var songsRef = $firebase(new Firebase(url + "/songs"));
 
-    $scope.recentSongs = [];
+    $scope.allSongs = [];
 
     songsRef.$on('value', function() {
-        $scope.recentSongs = [];
+        $scope.allSongs = [];
         songsRef.$getIndex().forEach(function(songId) {
             song = songsRef.$child(songId);
             song.id = songId;
-            $scope.recentSongs.push(song);
+            $scope.allSongs.push(song);
         });
     });
 

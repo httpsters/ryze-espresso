@@ -157,7 +157,7 @@
                      <div class="track-name">Track Name</div>
                      <div class="like">Like</div>
                   </li>
-                  <li ng-repeat="song in recentSongs | orderBy:'-last_played' | limitTo: 6">
+                  <li ng-repeat="song in allSongs | orderBy:'-last_played' | limitTo: 6">
                     <div class="title-song-block">
                        <div class="title-song">{{ song.title }}</div>
                        <div class="submit-by">Submitted by <span class="submition-name">{{ song.added_by }}</span></div>
