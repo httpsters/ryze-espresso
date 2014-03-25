@@ -10,6 +10,10 @@ angular.module('riseApp.controllers').controller("RecentlyPlayedCtrl", function(
 
     songs = $firebase(songsRef);
 
+    $scope.songIsLiked = function(songId) {
+        return songId in $scope.likedSongs;
+    };
+
     $scope.toggleLike = function(songId) {
         if (songId in $scope.likedSongs) {
             console.debug("unliking song", songId);
