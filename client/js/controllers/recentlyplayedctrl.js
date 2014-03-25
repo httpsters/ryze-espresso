@@ -14,27 +14,27 @@ angular.module('riseApp.controllers').controller("RecentlyPlayedCtrl", function(
     });
 
     // memory of liked songs
-    $scope.likedSongs = {};
+    likedSongs = {};
 
     $scope.songIsLiked = function(songId) {
-        return songId in $scope.likedSongs;
+        return songId in likedSongs;
     };
 
     $scope.toggleLike = function(songId) {
         update = {};
         song = songsRef.$child(songId);
 
-        if (songId in $scope.likedSongs) {
+        if (songId in likedSongs) {
             console.debug("unliking song", songId);
             update = { likes: song.likes - 1 };
-            delete $scope.likedSongs[songId];    // remove key
+            delete likedSongs[songId];    // remove key
         } else {
             console.debug('like song', songId);
             update = {
                 likes: song.likes + 1,
                 last_liked: new Date().getTime()
             };
-            $scope.likedSongs[songId] = true;
+            likedSongs[songId] = true;
         }
         song.$update(update); // make changes and save to firebase
     };
