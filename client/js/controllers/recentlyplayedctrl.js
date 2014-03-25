@@ -1,14 +1,20 @@
 angular.module('riseApp.controllers').controller("RecentlyPlayedCtrl", function($scope, $firebase) {
-    var songsRef = new Firebase("https://shining-fire-6877.firebaseio.com/songs");
-    var recentRef = new Firebase("https://shining-fire-6877.firebaseio.com/songs");
+    url = "https://shining-fire-6877.firebaseio.com";
+    var songsRef = $firebase(new Firebase(url + "/songs"));
 
-    // bind firebase recent songs to the scope
-    $scope.recentSongs = $firebase(recentRef);
+    $scope.recentSongs = [];
+
+    songsRef.$on('value', function() {
+        $scope.recentSongs = [];
+        songsRef.$getIndex().forEach(function(songId) {
+            song = songsRef.$child(songId);
+            song.id = songId;
+            $scope.recentSongs.push(song);
+        });
+    });
 
     // memory of liked songs
     $scope.likedSongs = {};
-
-    songs = $firebase(songsRef);
 
     $scope.songIsLiked = function(songId) {
         return songId in $scope.likedSongs;
@@ -16,7 +22,7 @@ angular.module('riseApp.controllers').controller("RecentlyPlayedCtrl", function(
 
     $scope.toggleLike = function(songId) {
         update = {};
-        song = songs.$child(songId);
+        song = songsRef.$child(songId);
 
         if (songId in $scope.likedSongs) {
             console.debug("unliking song", songId);
@@ -32,6 +38,5 @@ angular.module('riseApp.controllers').controller("RecentlyPlayedCtrl", function(
         }
         song.$update(update); // make changes and save to firebase
     };
-
 
 });
