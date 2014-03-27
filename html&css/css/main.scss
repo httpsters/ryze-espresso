@@ -46,6 +46,7 @@ $visual-grid: true;
 
 $tablet-portrait: 768px;
 $mobile: 384px;
+$mobile-landscape: 480px;
 
 // * {
 //    @include transition( all 0.3s );
@@ -536,13 +537,123 @@ h2 {
          float: left;
       }
 
-      nav ul li {
-         display: inline-block;
+      nav {
+         margin-left: 115px;
+         margin-top: 20px;
       }
 
-      nav ul li a {
-         //display: block;
-         font-size: 20px;
+      nav ul li {
+         display: inline-block;
+         margin: 0 10px 10px 0;
+      }
+   }
+
+   .about {
+      margin-bottom: 0;
+
+      .about-text {
+         @include span-columns(7);
+         padding: 28px 14px 10px;
+         font-size: 26px;
+      }
+
+      .about-pic-desc {
+         @include span-columns(5);
+         text-align: center;
+         padding: 32px 14px 0;
+         margin-top: 0;
+
+         img {
+            width: 100%;
+         }
+      }
+   }
+
+   .upload-song {
+      .desc {
+         width: 100%;
+         padding: 14px;
+         font-size: 16px;
+         word-spacing: 2px;
+      }
+   }
+
+   .content {
+      @include span-columns(12);
+
+      .desktop-logo-block {
+         display: none;
+      }
+   }
+
+   .col-1 {
+      @include span-columns(12);
+      background: #fff;
+      margin-bottom: 25px;
+
+      .sc-play {
+         @include span-columns(4);
+      }
+
+      .tablet-block {
+         @include span-columns(8);
+      }
+   }
+
+   .col-2 {
+      @include span-columns(6);
+      background: #fff;
+      margin-bottom: 25px;
+   }
+
+   .col-3 {
+      @include span-columns(6);
+      background: #fff;
+      margin-bottom: 25px;
+      height: 400px;
+   }
+}
+
+// Mobile Landscape
+@include media(max-width $mobile-landscape) {
+   body {
+      background: #030305 url("../images/mobile-bg.jpg") center top no-repeat fixed;
+      @include background-size-mobile(768px, 768px);
+      width: 100%;
+   }
+
+   .left-sidebar {
+      @include span-columns(12);
+
+      nav {
+         margin-left: 115px;
+         margin-top: 20px;
+      }
+
+      nav ul li {
+         display: inline-block;
+         margin: 0 10px 10px 0;
+      }
+   }
+
+   .about {
+      margin-bottom: 0;
+
+      .about-text {
+         @include span-columns(12);
+         padding: 28px 14px 10px;
+         font-size: 26px;
+      }
+
+      .about-pic-desc {
+         @include span-columns(6);
+         text-align: center;
+         margin: 20px 0 0;
+         padding: 0 14px;
+
+         img {
+            width: 100%;
+         }
       }
    }
 
@@ -555,6 +666,7 @@ h2 {
    }
 }
 
+//Mobile
 @include media(max-width $mobile)  {
    body {
       background: #030305 url("../images/mobile-bg.jpg") center top no-repeat fixed;
@@ -586,13 +698,20 @@ h2 {
    }
 
    .about {
-      margin-bottom: 10px;
-
+      margin-bottom: 0;
 
       .about-text {
          @include span-columns(12);
          padding: 28px 14px 10px;
          font-size: 30px;
+
+         p:first-child {
+            font-size: 25px;
+         }
+
+         p:first-child + p {
+            font-size: 27px;
+         }
       }
 
       .about-pic-desc {
@@ -612,6 +731,7 @@ h2 {
          width: 100%;
          padding: 14px;
          font-size: 18px;
+         word-spacing: 2px;
       }
    }
 
