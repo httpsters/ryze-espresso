@@ -113,17 +113,6 @@
                   <!-- <img src="images/play.jpg" alt=""> -->
                   <iframe id="sc-widget" width="100%" height="260" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/134766478"></iframe>
                 </div>
-               <h2>songs test</h2>
-               <table>
-                <tr ng-repeat="song in upcomingSongs">
-                  <td>
-                    {{ song.url }}
-                  </td>
-                  <td>
-                    {{song.title}}
-                  </td>
-                </tr>
-              </table>
                <div class="tablet-block">
                <h2>UPCOMING SONGS</h2>
                <ul class="songs-list">
@@ -132,21 +121,15 @@
                      <div class="like">Like</div>
                      <div class="countdown-title">Countdown</div>
                   </li>
-                  <li>
+                  <li ng-repeat="song in upcomingSongs">
                      <div class="title-song-block">
-                        <div class="title-song">Happy</div>
-                        <div class="submit-by">Submitted by <span class="submition-name">JTopp</span></div>
+                       <div class="title-song">{{ song.title }}</div>
+                       <div class="submit-by">Submitted by
+                         <span class="submition-name">{{ song.added_by }}</span>
+                       </div>
                      </div>
                      <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
                      <div class="countdown"><span class="countdown-time">3.43</span> mins</div>
-                  </li>
-                  <li>
-                     <div class="title-song-block">
-                        <div class="title-song">Dark Horse</div>
-                        <div class="submit-by">Submitted by <span class="submition-name">King George</span></div>
-                     </div>
-                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
-                     <div class="countdown"><span class="countdown-time">5:27</span> mins</div>
                   </li>
                </ul>
                </div>

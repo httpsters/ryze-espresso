@@ -1,7 +1,7 @@
 angular.module('riseApp.controllers').controller("PlayerCtrl", function($scope, $firebase) {
-	var queueRef = new Firebase("https://shining-fire-6877.firebaseio.com/queue");
-	var songsRef = new Firebase("https://shining-fire-6877.firebaseio.com/songs");
-    $scope.upcomingSongs = $firebase(queueRef);
+
+    var url = "https://shining-fire-6877.firebaseio.com";
+	var queueRef = new Firebase(url + "/queue");
 	//$scope.nowplaying = $firebase(nowplaying_ref);
 
 	var widgetIframe = document.getElementById('sc-widget');
@@ -29,5 +29,21 @@ angular.module('riseApp.controllers').controller("PlayerCtrl", function($scope, 
 			show_user: false,
 			});
 	}); //current song handler end
+
+    // for getting the upcoming songs on the queue
+	var songsRef = $firebase(new Firebase(url + "/songs"));
+    var nextRef = $firebase(new Firebase(url + "/queue/next"));
+    $scope.upcomingSongs = [];
+
+    nextRef.$on('value', function(snap) {
+        nextSongs = snap.snapshot.value;
+        $scope.upcomingSongs = []; // clear scope
+        for (var key in nextSongs) {
+            songId = nextSongs[key];
+            song = songsRef.$child(songId);
+            $scope.upcomingSongs.push(song);
+        };
+    });
+
 });
 
