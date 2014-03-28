@@ -46,7 +46,7 @@ $visual-grid: true;
 
 $tablet-portrait: 768px;
 $mobile: 384px;
-$mobile-landscape: 480px;
+$mobile-landscape: 568px;
 
 // * {
 //    @include transition( all 0.3s );
@@ -261,12 +261,12 @@ h2 {
 
 #conformation-block {
    position: absolute;
-   //display: none;
+   display: none;
    background: #fff;
    height: 100%;
    width: 100%;
-   //top: -100%;
-   top:0;
+   top: -100%;
+   //top:0;
    left: 0;
    color: #000;
    padding: 19px 0;
@@ -580,7 +580,7 @@ h2 {
 
    .left-conf-content {
       img {
-         //width: 100px;
+         width: 28%;
          margin: 0 5.0316%;
       }
 
@@ -654,56 +654,82 @@ h2 {
 }
 
 // Mobile Landscape
-// @include media(max-width $mobile-landscape) {
-//    body {
-//       background: #030305 url("../images/mobile-bg.jpg") center top no-repeat fixed;
-//       @include background-size-mobile(768px, 768px);
-//       width: 100%;
-//    }
+@include media(max-width $mobile-landscape) {
+   body {
+      background: #030305 url("../images/mobile-bg.jpg") center top no-repeat fixed;
+      @include background-size-mobile(768px, 768px);
+      width: 100%;
+   }
 
-//    .left-sidebar {
-//       @include span-columns(12);
+   .left-sidebar {
+      @include span-columns(12);
 
-//       nav {
-//          margin-left: 115px;
-//          margin-top: 20px;
-//       }
+      nav {
+         margin-left: 115px;
+         margin-top: 20px;
+      }
 
-//       nav ul li {
-//          display: inline-block;
-//          margin: 0 10px 10px 0;
-//       }
-//    }
+      nav ul li {
+         display: inline-block;
+         margin: 0 10px 10px 0;
+      }
+   }
 
-//    .about {
-//       margin-bottom: 0;
+   .about {
+      margin-bottom: 0;
 
-//       .about-text {
-//          @include span-columns(12);
-//          padding: 28px 14px 10px;
-//          font-size: 26px;
-//       }
+      .about-text {
+         @include span-columns(12);
+         padding: 28px 14px 10px;
+         font-size: 26px;
+      }
 
-//       .about-pic-desc {
-//          @include span-columns(6);
-//          text-align: center;
-//          margin: 20px 0 0;
-//          padding: 0 14px;
+      .about-pic-desc {
+         @include span-columns(7);
+         text-align: center;
+         margin: 20px 0 0;
+         padding: 0 14px;
+         width: 64.82117%;
+      }
+   }
 
-//          img {
-//             width: 100%;
-//          }
-//       }
-//    }
+   .left-conf-content {
+         img {
+            width: 34%;
+            margin: 0 5.0316%;
+         }
 
-//    .content {
-//       @include span-columns(12);
+         .great-block {
+            font-size: 28px;
+         }
 
-//       .desktop-logo-block {
-//          display: none;
-//       }
-//    }
-// }
+         .great-block p + p {
+            font-size: 28px;
+         }
+      }
+
+      .right-conf-content {
+         width: 50%;
+
+         .right-conf-content__added {
+            font-size: 20px;
+            margin-bottom: 16px;
+            margin-top: 0;
+         }
+
+         .conf-song-num {
+            font-size: 22px;
+         }
+      }
+
+   .content {
+      @include span-columns(12);
+
+      .desktop-logo-block {
+         display: none;
+      }
+   }
+}
 
 //Mobile
 @include media(max-width $mobile)  {
@@ -745,7 +771,7 @@ h2 {
          font-size: 30px;
 
          p:first-child {
-            font-size: 25px;
+            font-size: 24px;
          }
 
          p:first-child + p {
@@ -797,11 +823,13 @@ h2 {
 
    .left-conf-content {
       height: 100%;
-      padding-right: 25px;
+      padding-right: 3.0316%;
       text-align: center;
+      margin-right: 7.0316%;
 
       img {
          margin: 0;
+         width: 75%;
       }
 
       .great-block {
@@ -816,6 +844,7 @@ h2 {
    }
 
    .right-conf-content {
+      width: 38%;
 
       .right-conf-content__added {
          line-height: 1.4em;
