@@ -121,7 +121,7 @@
                      <div class="like">Like</div>
                      <div class="countdown-title">Countdown</div>
                   </li>
-                  <li ng-repeat="song in upcomingSongs">
+                  <li ng-repeat="song in upcomingSongs | limitTo: 2">
                      <div class="title-song-block">
                        <div class="title-song">{{ song.title }}</div>
                        <div class="submit-by">Submitted by
