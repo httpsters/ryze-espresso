@@ -128,7 +128,7 @@
                          <span class="submition-name">{{ song.added_by }}</span>
                        </div>
                      </div>
-                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
+                     <a ng-class="{'new-heart': songIsLiked(song.$id)}" class="like-heart" ng-click="toggleLike(song.$id)"></a>
                      <div class="countdown"><span class="countdown-time">3.43</span> mins</div>
                   </li>
                </ul>
