@@ -261,15 +261,15 @@ h2 {
 
 #conformation-block {
    position: absolute;
-   display: none;
+   //display: none;
    background: #fff;
    height: 100%;
    width: 100%;
-   top: -100%;
-   //top:0;
+   //top: -100%;
+   top:0;
    left: 0;
    color: #000;
-   padding: 19px 25px;
+   padding: 19px 0;
 
    p {
       font-family: 'Oswald';
@@ -284,13 +284,13 @@ h2 {
    text-align: right;
    line-height: 1.2;
    border-right: 1px solid #C2C2C2;
-   margin-right: 25px;
+   margin-right: 3.0316%;
 
    img {
-      width: 90px;
+      width: 24%;
       display: inline-block;
       vertical-align: top;
-      margin: 0 25px;
+      margin: 0 5.0316%;
    }
 
    .great-block {
@@ -578,6 +578,45 @@ h2 {
       }
    }
 
+   .left-conf-content {
+      img {
+         //width: 100px;
+         margin: 0 5.0316%;
+      }
+
+      .great-block {
+         font-size: 32px;
+      }
+
+      .great-block p + p {
+         font-size: 32px;
+      }
+   }
+
+   .right-conf-content {
+      display: inline-block;
+      width: 50%;
+      vertical-align: top;
+
+      .right-conf-content__added {
+         text-transform: initial;
+         font-size: 24px;
+         margin-bottom: 16px;
+         margin-top: 10px;
+         color: #6D6D6D;
+      }
+
+      .conf-song-num {
+         font-size: 28px;
+         text-transform: uppercase;
+         color: #6D6D6D;
+
+         span {
+            color: #BB7D4C;
+         }
+      }
+   }
+
    .content {
       @include span-columns(12);
 
@@ -615,56 +654,56 @@ h2 {
 }
 
 // Mobile Landscape
-@include media(max-width $mobile-landscape) {
-   body {
-      background: #030305 url("../images/mobile-bg.jpg") center top no-repeat fixed;
-      @include background-size-mobile(768px, 768px);
-      width: 100%;
-   }
+// @include media(max-width $mobile-landscape) {
+//    body {
+//       background: #030305 url("../images/mobile-bg.jpg") center top no-repeat fixed;
+//       @include background-size-mobile(768px, 768px);
+//       width: 100%;
+//    }
 
-   .left-sidebar {
-      @include span-columns(12);
+//    .left-sidebar {
+//       @include span-columns(12);
 
-      nav {
-         margin-left: 115px;
-         margin-top: 20px;
-      }
+//       nav {
+//          margin-left: 115px;
+//          margin-top: 20px;
+//       }
 
-      nav ul li {
-         display: inline-block;
-         margin: 0 10px 10px 0;
-      }
-   }
+//       nav ul li {
+//          display: inline-block;
+//          margin: 0 10px 10px 0;
+//       }
+//    }
 
-   .about {
-      margin-bottom: 0;
+//    .about {
+//       margin-bottom: 0;
 
-      .about-text {
-         @include span-columns(12);
-         padding: 28px 14px 10px;
-         font-size: 26px;
-      }
+//       .about-text {
+//          @include span-columns(12);
+//          padding: 28px 14px 10px;
+//          font-size: 26px;
+//       }
 
-      .about-pic-desc {
-         @include span-columns(6);
-         text-align: center;
-         margin: 20px 0 0;
-         padding: 0 14px;
+//       .about-pic-desc {
+//          @include span-columns(6);
+//          text-align: center;
+//          margin: 20px 0 0;
+//          padding: 0 14px;
 
-         img {
-            width: 100%;
-         }
-      }
-   }
+//          img {
+//             width: 100%;
+//          }
+//       }
+//    }
 
-   .content {
-      @include span-columns(12);
+//    .content {
+//       @include span-columns(12);
 
-      .desktop-logo-block {
-         display: none;
-      }
-   }
-}
+//       .desktop-logo-block {
+//          display: none;
+//       }
+//    }
+// }
 
 //Mobile
 @include media(max-width $mobile)  {
@@ -799,6 +838,14 @@ h2 {
       @include span-columns(12);
       background: #fff;
       margin-bottom: 25px;
+
+      .sc-play {
+         @include span-columns(12);
+      }
+
+      .tablet-block {
+         @include span-columns(12);
+      }
    }
 
    .songs-list {

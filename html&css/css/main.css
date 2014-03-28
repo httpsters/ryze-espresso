@@ -271,14 +271,13 @@ h2 {
 
 #conformation-block {
   position: absolute;
-  display: none;
   background: #fff;
   height: 100%;
   width: 100%;
-  top: -100%;
+  top: 0;
   left: 0;
   color: #000;
-  padding: 19px 25px;
+  padding: 19px 0;
 }
 #conformation-block p {
   font-family: 'Oswald';
@@ -292,13 +291,13 @@ h2 {
   text-align: right;
   line-height: 1.2;
   border-right: 1px solid #C2C2C2;
-  margin-right: 25px;
+  margin-right: 3.0316%;
 }
 .left-conf-content img {
-  width: 90px;
+  width: 24%;
   display: inline-block;
   vertical-align: top;
-  margin: 0 25px;
+  margin: 0 5.0316%;
 }
 .left-conf-content .great-block {
   display: inline-block;
@@ -618,6 +617,37 @@ h2 {
     word-spacing: 2px;
   }
 
+  .left-conf-content img {
+    margin: 0 5.0316%;
+  }
+  .left-conf-content .great-block {
+    font-size: 32px;
+  }
+  .left-conf-content .great-block p + p {
+    font-size: 32px;
+  }
+
+  .right-conf-content {
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+  }
+  .right-conf-content .right-conf-content__added {
+    text-transform: initial;
+    font-size: 24px;
+    margin-bottom: 16px;
+    margin-top: 10px;
+    color: #6D6D6D;
+  }
+  .right-conf-content .conf-song-num {
+    font-size: 28px;
+    text-transform: uppercase;
+    color: #6D6D6D;
+  }
+  .right-conf-content .conf-song-num span {
+    color: #BB7D4C;
+  }
+
   .content {
     float: left;
     display: block;
@@ -684,77 +714,6 @@ h2 {
   }
   .col-3:last-child {
     margin-right: 0;
-  }
-}
-@media screen and (max-width: 480px) {
-  body {
-    background: #030305 url("../images/mobile-bg.jpg") center top no-repeat fixed;
-    -webkit-background-size: 768px 768px;
-    -moz-background-size: 768px 768px;
-    -o-background-size: 768px 768px;
-    background-size: 768px 768px;
-    width: 100%;
-  }
-
-  .left-sidebar {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 100%;
-  }
-  .left-sidebar:last-child {
-    margin-right: 0;
-  }
-  .left-sidebar nav {
-    margin-left: 115px;
-    margin-top: 20px;
-  }
-  .left-sidebar nav ul li {
-    display: inline-block;
-    margin: 0 10px 10px 0;
-  }
-
-  .about {
-    margin-bottom: 0;
-  }
-  .about .about-text {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 100%;
-    padding: 28px 14px 10px;
-    font-size: 26px;
-  }
-  .about .about-text:last-child {
-    margin-right: 0;
-  }
-  .about .about-pic-desc {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 48.82117%;
-    text-align: center;
-    margin: 20px 0 0;
-    padding: 0 14px;
-  }
-  .about .about-pic-desc:last-child {
-    margin-right: 0;
-  }
-  .about .about-pic-desc img {
-    width: 100%;
-  }
-
-  .content {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 100%;
-  }
-  .content:last-child {
-    margin-right: 0;
-  }
-  .content .desktop-logo-block {
-    display: none;
   }
 }
 @media screen and (max-width: 384px) {
@@ -895,6 +854,24 @@ h2 {
     margin-bottom: 25px;
   }
   .col-1:last-child {
+    margin-right: 0;
+  }
+  .col-1 .sc-play {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+  }
+  .col-1 .sc-play:last-child {
+    margin-right: 0;
+  }
+  .col-1 .tablet-block {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+  }
+  .col-1 .tablet-block:last-child {
     margin-right: 0;
   }
 
