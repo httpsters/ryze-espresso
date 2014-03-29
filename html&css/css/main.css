@@ -422,16 +422,17 @@ h2 {
   position: relative;
 }
 .col-1 .like-heart-abs {
-  background: url("../images/heart_24.svg") top center no-repeat;
+  background: white url("../images/heart_24.svg") top center no-repeat;
   width: 24px;
   height: 24px;
   cursor: pointer;
   position: absolute;
-  top: 70px;
-  right: 30px;
+  top: 58px;
+  right: 0;
+  padding: 0 24px;
 }
 .col-1 .new-heart {
-  background-position: 50% -16px;
+  background-position: 50% -24px;
 }
 
 .songs-list {
