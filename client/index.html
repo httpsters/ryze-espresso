@@ -119,13 +119,20 @@
                   <iframe id="sc-widget" width="100%" height="260" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/134766478"></iframe>
                 </div>
                <div class="tablet-block">
-               <h2>UPCOMING SONGS</h2>
+                 <h2>UPCOMING SONGS</h2>
                <ul class="songs-list">
                   <li>
                      <div class="track-name">Track Name</div>
                      <div class="like">Like</div>
                      <div class="countdown-title">Countdown</div>
-                  </li>
+                   </li>
+                   <li ng-show="upcomingSongs.length === 0">
+                   <div class='text'>
+                     <p>Up next at Rise</p>
+                     <p>Your favourite song!</p>
+                     <p>Upload now!</p>
+                   </div>
+                   </li>
                   <li ng-repeat="song in upcomingSongs | limitTo: 2">
                      <div class="title-song-block">
                        <div class="title-song">{{ song.title }}</div>
