@@ -26,10 +26,14 @@ angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, 
 				last_played: 0,
 			}
 
-			$scope.allSongs.$add(song).then(function(ref) {
-				// add id of new song to user song queue
-				$scope.userSongs.$add(ref.name());
-			});
+            $scope.allSongs.$add(song).then(function(ref) {
+                // add id of new song to user song queue
+                addSongRef = {
+                    'key': ref.name(),
+                    'time_added': new Date().getTime()
+                };
+                $scope.userSongs.$add(addSongRef);
+            });
 			
 			},
 			function(e) {
