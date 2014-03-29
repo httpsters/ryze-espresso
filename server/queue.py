@@ -88,7 +88,7 @@ class SongQueue:
         play_count = int(song.get('play_count', 0))
         # compute score
         score = 1.0
-        score += 1000.0 / time_since_song_added
+        score += -1 * (play_count - 10) ** 2 + 200 if play_count < 24 else 0
         score += like_count
         score *= math.pow(time_since_last_played, 0.3)
         return score
