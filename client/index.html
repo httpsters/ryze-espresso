@@ -15,8 +15,8 @@
   <script src="js/lib/firebase.js"></script>
   <script src="js/lib/angular.js"></script>
   <script src="js/lib/angularfire.js"></script>
-  <script src="js/lib/zepto.js"></script>
-
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="js/lib/select2.js"></script>
 
   <!-- Angular App -->
   <script src="js/app.js"></script>
@@ -27,6 +27,8 @@
   <script src="js/controllers/leaderboardctrl.js"></script>
   <script src="js/controllers/recentlyplayedctrl.js"></script>
 
+  <script src="js/select2search.js"></script>
+
   <!-- SoundCloud -->
   <script src="js/lib/soundcloud.js"></script>
 
@@ -34,6 +36,7 @@
   <!-- <link href='css/googlefonts.css' rel='stylesheet' type='text/css'> -->
   <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/select2.css">
 
    <script type="text/javascript">
       function changeHeart(obj) {
@@ -91,8 +94,10 @@
                        <p class="conf-song-num">Your song <span>#2</span></p>
                     </div>
                 </div>
+                
                 <form>
                   <div class="sc-url-block">
+                    <input type='text' data-init-text='Search Songs' name='searchbox' id='searchbox' ng-model="newsong.url" style='width:300px;'/>
                      <label>Find your track on souncloud and paste the URL below</label>
                      <input class="sc-url" type="text" ng-model="newsong.url" placeholder="Paste your soundcloud URL here">
                   </div>

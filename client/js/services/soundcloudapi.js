@@ -1,4 +1,5 @@
-angular.module('riseApp.services').factory('scService', function ($http, $q) {
+angular.module('riseApp.services')
+.factory('scResolve', function ($http, $q) {
 	return {
 		// query soundcloud api to resolve track by url
 		// returns track metadata object
