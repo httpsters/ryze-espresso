@@ -100,18 +100,20 @@
          <div class="three-col">
             <div class="col-1" ng-controller="PlayerCtrl">
                 <div class="sc-play">
-                  <a ng-class="{'like-heart-abs': songIsLiked(song.$id)}" class="like-heart" ng-click="toggleLike(song.$id)"></a>
+                  <a ng-class="{'like-heart-abs': songIsLiked(currentSong.$id)}" class="like-heart" ng-click="toggleLike(currentSong.$id)"></a>
                   <iframe id="sc-widget" width="100%" height="260" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/134766478"></iframe>
                 </div>
+                <ul class='songs-list'>
+                  <li>
+                     <div class="title-song">{{ currentSong.title }}</div>
+                     <div class="submit-by">Submitted by <span class="submition-name">{{ currentSong.added_by }}</span></div>
+                     <a ng-class="{'new-heart': songIsLiked(currentSong.$id)}" class="like-heart" ng-click="toggleLike(currentSong.$id)"></a>
+                   </li>
+                </ul>
                <div class="tablet-block">
                  <h2>UPCOMING SONGS</h2>
                <ul class="songs-list">
-                  <li>
-                     <div class="track-name">Track Name</div>
-                     <div class="like">Like</div>
-                     <div class="countdown-title">Countdown</div>
-                   </li>
-                   <li ng-show="upcomingSongs.length === 0">
+                 <li ng-show="upcomingSongs.length === 0">
                    <div class='text'>
                      <p>Up next at Rise</p>
                      <p>Your favourite song!</p>

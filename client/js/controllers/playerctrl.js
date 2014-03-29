@@ -8,13 +8,16 @@ angular.module('riseApp.controllers').controller("PlayerCtrl", function($scope, 
     var widgetIframe = document.getElementById('sc-widget');
     var widget       = SC.Widget(widgetIframe);
 
+    $rootScope.currentSong = {};
+
     // current song handler
     // plays new song as set by backend streaming
     queueRef.$child('cur').$on('value', function(dataSnapshot) {
         var songid = dataSnapshot.snapshot.value;
         console.log('current song firebase id: ',songid);
         // get url for song by id
-        var songurl = songsRef.$child(songid).url;
+        var song = $rootScope.currentSong = songsRef.$child(songid);
+        var songurl = song.url;
         console.log('songurl: ',songurl);
 
         widget.load(songurl, {
@@ -42,7 +45,8 @@ angular.module('riseApp.controllers').controller("PlayerCtrl", function($scope, 
             songId = nextSongs[key].key;
             console.log('next song id is', songId);
             song = songsRef.$child(songId);
-            $rootScope.upcomingSongs.push(song);
+            if (song.title && song.url)
+                $rootScope.upcomingSongs.push(song);
         };
     });
 

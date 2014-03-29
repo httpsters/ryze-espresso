@@ -37,6 +37,7 @@ class SongQueue:
         next_queue = firebase.get(config.QUEUE, config.NEXT)
         if next_queue is None:
             next_id = self._get_auto_song()
+            print 'auto-choose: next song id is', next_id
         else:
             list_queue = [next_queue[key] for key in next_queue]
             comp = lambda song: song.get('time_added', -1)
@@ -63,8 +64,10 @@ class SongQueue:
                 result = False
 
         result = firebase.put(config.QUEUE, config.CURRENT, next_id)
-        song_link = self.lookup(next_id).get('url')
-        result = firebase.put('nowplaying', 'cur', song_link)
+        song = self.lookup(next_id)
+        if song is not None:
+            song_link = song.get('url')
+            result = firebase.put('nowplaying', 'cur', song_link)
         return result
 
     def _get_auto_song(self):
