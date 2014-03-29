@@ -382,7 +382,7 @@ h2 {
   margin-right: auto;
   overflow: hidden;
   margin-top: 18px;
-  margin-bottom: 100px;
+  margin-bottom: 40px;
 }
 .three-col:before, .three-col:after {
   content: " ";
@@ -547,6 +547,50 @@ h2 {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   border-radius: 10px;
+}
+
+footer {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.footer-content {
+  width: 23.55713%;
+  display: inline;
+}
+.footer-content ul li {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 5px;
+}
+.footer-content a {
+  display: block;
+  width: 32px;
+  height: 32px;
+  -khtml-opacity: 0.7;
+  -moz-opacity: 0.7;
+  opacity: 0.7;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" 70 ")";
+}
+.footer-content a:hover {
+  -khtml-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" 100 ")";
+}
+.footer-content .goog {
+  background: url("../images/goog.svg") 0 0 no-repeat;
+}
+.footer-content .fb {
+  background: url("../images/fb.svg") 0 0 no-repeat;
+}
+.footer-content .twit {
+  background: url("../images/twitter.svg") 0 0 no-repeat;
+}
+.footer-content .copyright {
+  color: #A8A8A8;
+  font-size: 10px;
+  margin-top: 15px;
 }
 
 @media screen and (max-width: 768px) {
@@ -1004,7 +1048,6 @@ h2 {
     width: 100%;
     background: #fff;
     margin-bottom: 25px;
-    height: 400px;
   }
   .col-3:last-child {
     margin-right: 0;
