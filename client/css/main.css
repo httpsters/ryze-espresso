@@ -335,7 +335,7 @@ h2 {
   color: #BB7D4C;
 }
 
-.conformation-active {
+.confirmationActive {
   display: block !important;
   animation: goDown 5s 1 !important;
   -webkit-animation: goDown 5s 1 !important;
