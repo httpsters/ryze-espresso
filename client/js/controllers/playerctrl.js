@@ -18,7 +18,7 @@ angular.module('riseApp.controllers').controller("PlayerCtrl", function($scope, 
         console.log('songurl: ',songurl);
 
         widget.load(songurl, {
-            auto_play: true,
+            auto_play: false, // SWITCH THIS BACK ON BEFORE DEMO
             show_artwork: true,
             visual: true,
             buying: false,
