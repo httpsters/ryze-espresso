@@ -1,4 +1,4 @@
-angular.module('riseApp.controllers').controller("PlayerCtrl", function($scope, $firebase) {
+angular.module('riseApp.controllers').controller("PlayerCtrl", function($scope, $rootScope, $firebase) {
 
     var url = "https://shining-fire-6877.firebaseio.com";
     var queueRef = $firebase(new Firebase(url + "/queue"));
@@ -18,7 +18,7 @@ angular.module('riseApp.controllers').controller("PlayerCtrl", function($scope, 
         console.log('songurl: ',songurl);
 
         widget.load(songurl, {
-            auto_play: false, // SWITCH THIS BACK ON BEFORE DEMO
+            auto_play: true,
             show_artwork: true,
             visual: true,
             buying: false,
@@ -33,16 +33,16 @@ angular.module('riseApp.controllers').controller("PlayerCtrl", function($scope, 
 
     // for getting the upcoming songs on the queue
     var nextRef = $firebase(new Firebase(url + "/queue/next"));
-    $scope.upcomingSongs = [];
+    $rootScope.upcomingSongs = [];
 
     nextRef.$on('value', function(snap) {
         nextSongs = snap.snapshot.value;
-        $scope.upcomingSongs = []; // clear scope
+        $rootScope.upcomingSongs = []; // clear scope
         for (var key in nextSongs) {
             songId = nextSongs[key].key;
             console.log('next song id is', songId);
             song = songsRef.$child(songId);
-            $scope.upcomingSongs.push(song);
+            $rootScope.upcomingSongs.push(song);
         };
     });
 
