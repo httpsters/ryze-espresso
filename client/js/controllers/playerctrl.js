@@ -18,7 +18,7 @@ angular.module('riseApp.controllers').controller("PlayerCtrl", function($scope, 
         console.log('songurl: ',songurl);
 
         widget.load(songurl, {
-            auto_play: true,
+            auto_play: false, // SWITCH THIS BACK ON BEFORE DEMO
             show_artwork: true,
             visual: true,
             buying: false,
@@ -39,7 +39,8 @@ angular.module('riseApp.controllers').controller("PlayerCtrl", function($scope, 
         nextSongs = snap.snapshot.value;
         $scope.upcomingSongs = []; // clear scope
         for (var key in nextSongs) {
-            songId = nextSongs[key];
+            songId = nextSongs[key].key;
+            console.log('next song id is', songId);
             song = songsRef.$child(songId);
             $scope.upcomingSongs.push(song);
         };
