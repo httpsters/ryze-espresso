@@ -407,11 +407,25 @@ h2 {
 
    .sc-play {
       width: 100%;
+      position: relative;
+   }
+
+   .like-heart {
+      background: url('../images/heart_24.svg') top center no-repeat;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      position: absolute;
+      top: 70px;
+      right: 30px;
+   }
+
+   .new-heart {
+      background-position: 50% -16px;
    }
 }
 
 .songs-list {
-
    padding: 10px 15px 25px;
    //display inline-block element's space fix
    font-size: 0;
@@ -442,13 +456,6 @@ h2 {
       font-size: 11px;
       display: block;
       margin-top: 5px;
-   }
-
-   .like-heart {
-      background: url('../images/heart_16.svg') top center no-repeat;
-      width: 10px;
-      height: 16px;
-      cursor: pointer;
    }
 
    .new-heart {
@@ -560,7 +567,8 @@ h2 {
    background: #fff;
 }
 
-   footer {
+/* Footer */
+footer {
    text-align: center;
    margin-bottom: 30px;
 }
@@ -605,7 +613,7 @@ h2 {
    }
 }
 
-// Tablet
+/* Tablet */
 @include media(max-width $tablet-portrait) {
    body {
       background: #030305 url("../images/mobile-bg.jpg") center top no-repeat fixed;
