@@ -112,7 +112,11 @@
                 </ul>
                <div class="tablet-block">
                  <h2>UPCOMING SONGS</h2>
-               <ul class="songs-list">
+                 <ul class="songs-list">
+                 <li>
+                   <div class='track-name'>Track Name</div>
+                   <div class='like'>Like</div>
+                 </li>
                  <li ng-show="upcomingSongs.length === 0">
                    <div class='text'>
                      <p>Up next at Rise</p>
@@ -128,7 +132,6 @@
                        </div>
                      </div>
                      <a ng-class="{'new-heart': songIsLiked(song.$id)}" class="like-heart" ng-click="toggleLike(song.$id)"></a>
-                     <div class="countdown"><span class="countdown-time">3.43</span> mins</div>
                   </li>
                </ul>
                </div>
