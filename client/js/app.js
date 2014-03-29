@@ -1,7 +1,8 @@
 var riseApp = angular.module("riseApp", [
 	'riseApp.services',
     'riseApp.controllers',
-    'firebase'
+    'firebase',
+    'ui.bootstrap'
 ]);
 angular.module('riseApp.services', []);
 angular.module('riseApp.controllers', []);
