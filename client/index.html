@@ -15,8 +15,7 @@
   <script src="js/lib/firebase.js"></script>
   <script src="js/lib/angular.js"></script>
   <script src="js/lib/angularfire.js"></script>
-  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script src="js/lib/select2.js"></script>
+  <script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
 
   <!-- Angular App -->
   <script src="js/app.js"></script>
@@ -27,8 +26,6 @@
   <script src="js/controllers/leaderboardctrl.js"></script>
   <script src="js/controllers/recentlyplayedctrl.js"></script>
 
-  <script src="js/select2search.js"></script>
-
   <!-- SoundCloud -->
   <script src="js/lib/soundcloud.js"></script>
 
@@ -36,17 +33,9 @@
   <!-- <link href='css/googlefonts.css' rel='stylesheet' type='text/css'> -->
   <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
-  <link rel="stylesheet" type="text/css" href="css/select2.css">
-
-   <script type="text/javascript">
-      function changeHeart(obj) {
-         obj.className = "like-heart new-heart";
-      }
-      function conformation() {
-         document.getElementById('conformation-block').className = "conformation-active";
-      }
-   </script>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 </head>
+
 <body>
    <div class="wrapper">
       <div class="left-sidebar">
@@ -81,7 +70,7 @@
                We want to share our love of music with our fellow coffee drinkers. Share your favourite songs and we play them in the café for the rest Rise to hear.  Upload and vote for the music that matters to you.
             </p>
             <div class="upload-form" ng-controller="SubmitCtrl">
-              <div id="conformation-block" class="">
+              <div id="conformation-block" ng-class="{confirmationActive: confShowing}">
                     <div class="left-conf-content">
                        <div class="great-block">
                           <p>Great</p>
@@ -96,8 +85,13 @@
                 </div>
 
                 <form>
+                  <div class='container-fluid'>
+                    <pre>Model: {{asyncSelected | json}}</pre>
+                    <input type="text" ng-model="asyncSelected" placeholder="Search Soundcloud" typeahead="track for track in tracksSearch($viewValue) | filter:$viewValue" typeahead-loading="loadingIcon" class="form-control">
+                    <i ng-show="loadingIcon" class="glyphicon glyphicon-refresh"></i>
+                  </div>
                   <div class="sc-url-block">
-                    <input type='text' data-init-text='Search Songs' name='searchbox' id='searchbox' ng-model="newsong.url" style='width:400px;'/>
+                    
                      <label>Find your track on souncloud and paste the URL below</label>
                      <input class="sc-url" type="text" ng-model="newsong.url" placeholder="Paste your soundcloud URL here">
                   </div>
@@ -107,7 +101,7 @@
                   </div>
                   <div class="submit-url-block">
                      <label></label>
-                     <button class="submit-url" ng-click="submit(newsong)" onclick="conformation()" type="button">Submit</button>
+                     <button class="submit-url" ng-click="submit(newsong)" type="button">Submit</button>
                   </div>
                 </form>
             </div>
@@ -115,7 +109,6 @@
          <div class="three-col">
             <div class="col-1" ng-controller="PlayerCtrl">
                 <div class="sc-play">
-                  <!-- <img src="images/play.jpg" alt=""> -->
                   <iframe id="sc-widget" width="100%" height="260" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/tracks/134766478"></iframe>
                 </div>
                <div class="tablet-block">

@@ -1,9 +1,26 @@
-angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, $firebase, scResolve) {
+angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, $firebase, $http, $timeout, scResolve) {
 	var songsRef = new Firebase("https://shining-fire-6877.firebaseio.com/songs");
 	var userSongsRef = new Firebase("https://shining-fire-6877.firebaseio.com/queue/next");
     $scope.allSongs = $firebase(songsRef);
     $scope.userSongs = $firebase(userSongsRef);
+
+    $scope.tracksSearch = function(query) {
+	    return $http.jsonp("http://api.soundcloud.com/tracks.json?q="+query+"&limit=10&client_id=e886c21459d731e8ac7aeedcb3c3b4bb").then(function(response){
+	    	console.log('submitctrl search response: ',response.data);
+	      return response.data;
+	    });
+  	};
+
+  	$scope.confShowing = false;
+	$scope.toggle = function(){
+       $scope.confShowing = !($scope.confShowing);
+    }
+    $scope.showConf = function() {
+          $scope.toggle();
+          $timeout($scope.toggle, 4000);
+      }
 	$scope.submit = function(newsong) {
+		if(newsong) {
 		// try and resolve track with soundcloud api
 		// (using angular service deferred promise result)
 		var trackPromise = scResolve.resolve(newsong.url);
@@ -33,6 +50,7 @@ angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, 
                     'time_added': new Date().getTime()
                 };
                 $scope.userSongs.$add(addSongRef);
+                $scope.showConf();
             });
 			
 			},
@@ -43,7 +61,7 @@ angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, 
 		); // trackPromise handlers end
 
 		
-	}; //$scop.submit defn end
+	}}; //$scop.submit defn end
 	
 });
 
