@@ -410,7 +410,7 @@ h2 {
       position: relative;
    }
 
-   .like-heart {
+   .like-heart-abs {
       background: url('../images/heart_24.svg') top center no-repeat;
       width: 24px;
       height: 24px;
@@ -456,6 +456,13 @@ h2 {
       font-size: 11px;
       display: block;
       margin-top: 5px;
+   }
+
+   .like-heart {
+      background: url('../images/heart_16.svg') top center no-repeat;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
    }
 
    .new-heart {

@@ -421,7 +421,7 @@ h2 {
   width: 100%;
   position: relative;
 }
-.col-1 .like-heart {
+.col-1 .like-heart-abs {
   background: url("../images/heart_24.svg") top center no-repeat;
   width: 24px;
   height: 24px;
@@ -460,6 +460,12 @@ h2 {
   font-size: 11px;
   display: block;
   margin-top: 5px;
+}
+.songs-list .like-heart {
+  background: url("../images/heart_16.svg") top center no-repeat;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
 }
 .songs-list .new-heart {
   background-position: 50% -16px;
