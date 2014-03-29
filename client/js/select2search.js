@@ -28,10 +28,10 @@ $(document).ready(function() {
             // for some reason need www
             var pu = data.permalink_url;
             if(pu) {
-                var url = 'http://www.' + pu.substring(pu.indexOf("soundcloud"));
-                console.log(url);
+                var url = 'https://www.' + pu.substring(pu.indexOf("soundcloud"));
+                console.log(pu);
                 var input = $('input[type=text].sc-url')
-                input.val(url);
+                input.val(pu);
                  //trigger user "input" event so angular sees
                 input.trigger('input');
             }
