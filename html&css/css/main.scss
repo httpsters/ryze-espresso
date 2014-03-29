@@ -524,6 +524,16 @@ h2 {
    }
 }
 
+.col-1:after,
+.col-2:after,
+.col-3:after {
+   content: '';
+   display: inline-block;
+   height: 100%;
+   min-height: 100%;
+   background: #fff;
+}
+
 .box { @include border-radius(10px); }
 
 footer {
