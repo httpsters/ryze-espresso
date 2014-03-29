@@ -472,7 +472,7 @@ h2 {
 }
 .songs-list .track-name,
 .songs-list .title-song-block {
-  width: 57.8484%;
+  width: 83.8484%;
 }
 .songs-list .like,
 .songs-list .like-heart {
@@ -783,7 +783,6 @@ footer {
     width: 48.82117%;
     background: #fff;
     margin-bottom: 25px;
-    height: 400px;
   }
   .col-3:last-child {
     margin-right: 0;
