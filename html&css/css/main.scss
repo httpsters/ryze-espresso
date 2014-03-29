@@ -2,6 +2,32 @@
 @import "bourbon/bourbon";
 @import "neat/neat";
 
+@font-face {
+   font-family: 'Lato-reg';
+   src: url('../fonts/Lato/lato-reg.eot') format('eot'),
+        url('../fonts/Lato/lato-reg.woff') format('woff'),
+        url('../fonts/Lato/lato-reg.ttf')  format('truetype'),
+        url('../fonts/Lato/lato-reg.svg#svgFontName') format('svg');
+}
+
+@font-face {
+   font-family: 'Oswald-regular';
+   src: url('../fonts/Oswald/oswald-light.eot') format('eot'),
+        url('../fonts/Oswald/oswald-light.woff') format('woff'),
+        url('../fonts/Oswald/oswald-light.ttf')  format('truetype'),
+        url('../fonts/Oswald/oswald-light.svg#svgFontName') format('svg');
+}
+
+/* -- smooth font-face fix Chrome bug, only SVG -- */
+// @media all and (-webkit-min-device-pixel-ratio:0) {
+//    @font-face {
+//    font-family: 'Lato-reg';
+//    src: url('../fonts/Lato/lato-reg.svg') format('svg');
+//       font-weight: normal;
+//       font-style: normal;
+//    }
+// }
+
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;
@@ -41,7 +67,7 @@
    color: rgb(102, 102, 102);
    border: 1px solid #C6C5C5;
    outline-color: orange;
-   font-family: 'Lato';
+   font-family: 'Lato', 'Lato-reg';
    font-size: 18px;
    @include border-radius(0);
    -webkit-appearance: none;
@@ -68,7 +94,7 @@ body {
 }
 
 h2 {
-   font-family: 'Oswald';
+   font-family: 'Oswald', 'Oswald-regular';
    font-weight: 300;
    font-size: 24px;
    padding-top: 25px;
@@ -102,7 +128,7 @@ h2 {
    nav ul li a {
       color: #fff;
       text-decoration: none;
-      font-family: 'Lato';
+      font-family: 'Lato', 'Lato-reg';
       font-size: 18px;
       font-weight: 300;
       padding: 10px 12px;
@@ -146,7 +172,7 @@ h2 {
    position: relative;
    margin-top: 20px;
    display: inline-block;
-   font-family: "Oswald";
+   font-family: 'Oswald', 'Oswald-regular';
    font-weight: 300;
    font-size: 38px;
    padding: 20px 20px;
@@ -163,7 +189,7 @@ h2 {
 
    .about-text {
       @include span-columns(6);
-      font-family: "Oswald";
+      font-family: 'Oswald', 'Oswald-regular';
       font-size: 32px;
       color: #fff;
       font-weight: 300;
@@ -192,7 +218,7 @@ h2 {
    .desc {
       width: 88.4688%;
       padding: 18px 0;
-      font-family: 'Lato';
+      font-family: 'Lato', 'Lato-reg';
       font-size: 16px;
       color: #fff;
       line-height: 1.4em;
@@ -211,7 +237,7 @@ h2 {
    label {
       font-size: 13px;
       font-weight: 300;
-      font-family: 'Lato';
+      font-family: 'Lato', 'Lato-reg';
    }
 
    .sc-url-block {
@@ -255,7 +281,7 @@ h2 {
       width: 100%;
       font-size: 18px;
       font-weight: 400;
-      font-family: 'Lato';
+      font-family: 'Lato', 'Lato-reg';
       border: none;
       background: #ED1F24;
       padding: 14px 0;
@@ -279,7 +305,7 @@ h2 {
    padding: 19px 0;
 
    p {
-      font-family: 'Oswald';
+      font-family: 'Oswald', 'Oswald-regular';
       font-weight: 300;
    }
 }
@@ -340,7 +366,7 @@ h2 {
    }
 }
 
-.conformation-active {
+.confirmationActive {
    display: block !important;
    animation: goDown 5s 1 !important;
    -webkit-animation: goDown 5s 1 !important;
@@ -389,7 +415,7 @@ h2 {
    padding: 10px 15px 25px;
    //display inline-block element's space fix
    font-size: 0;
-   font-family: 'Lato';
+   font-family: 'Lato', 'Lato-reg';
 
    li:first-child {
       border: none;

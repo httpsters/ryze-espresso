@@ -4,6 +4,15 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'Lato-reg';
+  src: url("../fonts/Lato/lato-reg.eot") format("eot"), url("../fonts/Lato/lato-reg.woff") format("woff"), url("../fonts/Lato/lato-reg.ttf") format("truetype"), url("../fonts/Lato/lato-reg.svg#svgFontName") format("svg");
+}
+@font-face {
+  font-family: 'Oswald-regular';
+  src: url("../fonts/Oswald/oswald-light.eot") format("eot"), url("../fonts/Oswald/oswald-light.woff") format("woff"), url("../fonts/Oswald/oswald-light.ttf") format("truetype"), url("../fonts/Oswald/oswald-light.svg#svgFontName") format("svg");
+}
+/* -- smooth font-face fix Chrome bug, only SVG -- */
 body {
   font-family: Arial;
   font-size: 90%;
@@ -16,7 +25,7 @@ body {
 }
 
 h2 {
-  font-family: 'Oswald';
+  font-family: 'Oswald', 'Oswald-regular';
   font-weight: 300;
   font-size: 24px;
   padding-top: 25px;
@@ -63,7 +72,7 @@ h2 {
 .left-sidebar nav ul li a {
   color: #fff;
   text-decoration: none;
-  font-family: 'Lato';
+  font-family: 'Lato', 'Lato-reg';
   font-size: 18px;
   font-weight: 300;
   padding: 10px 12px;
@@ -110,7 +119,7 @@ h2 {
   position: relative;
   margin-top: 20px;
   display: inline-block;
-  font-family: "Oswald";
+  font-family: 'Oswald', 'Oswald-regular';
   font-weight: 300;
   font-size: 38px;
   padding: 20px 20px;
@@ -140,7 +149,7 @@ h2 {
   display: block;
   margin-right: 2.35765%;
   width: 48.82117%;
-  font-family: "Oswald";
+  font-family: 'Oswald', 'Oswald-regular';
   font-size: 32px;
   color: #fff;
   font-weight: 300;
@@ -183,7 +192,7 @@ h2 {
 .upload-song .desc {
   width: 88.4688%;
   padding: 18px 0;
-  font-family: 'Lato';
+  font-family: 'Lato', 'Lato-reg';
   font-size: 16px;
   color: #fff;
   line-height: 1.4em;
@@ -203,7 +212,7 @@ h2 {
 .upload-form label {
   font-size: 13px;
   font-weight: 300;
-  font-family: 'Lato';
+  font-family: 'Lato', 'Lato-reg';
 }
 .upload-form .sc-url-block {
   display: inline-block;
@@ -219,7 +228,7 @@ h2 {
   color: #666666;
   border: 1px solid #C6C5C5;
   outline-color: orange;
-  font-family: 'Lato';
+  font-family: 'Lato', 'Lato-reg';
   font-size: 18px;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -241,7 +250,7 @@ h2 {
   color: #666666;
   border: 1px solid #C6C5C5;
   outline-color: orange;
-  font-family: 'Lato';
+  font-family: 'Lato', 'Lato-reg';
   font-size: 18px;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -259,7 +268,7 @@ h2 {
   width: 100%;
   font-size: 18px;
   font-weight: 400;
-  font-family: 'Lato';
+  font-family: 'Lato', 'Lato-reg';
   border: none;
   background: #ED1F24;
   padding: 14px 0;
@@ -281,7 +290,7 @@ h2 {
   padding: 19px 0;
 }
 #conformation-block p {
-  font-family: 'Oswald';
+  font-family: 'Oswald', 'Oswald-regular';
   font-weight: 300;
 }
 
@@ -335,7 +344,7 @@ h2 {
   color: #BB7D4C;
 }
 
-.conformation-active {
+.confirmationActive {
   display: block !important;
   animation: goDown 5s 1 !important;
   -webkit-animation: goDown 5s 1 !important;
@@ -415,7 +424,7 @@ h2 {
 .songs-list {
   padding: 10px 15px 25px;
   font-size: 0;
-  font-family: 'Lato';
+  font-family: 'Lato', 'Lato-reg';
 }
 .songs-list li:first-child {
   border: none;
