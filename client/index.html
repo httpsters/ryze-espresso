@@ -15,7 +15,6 @@
   <script src="js/lib/firebase.js"></script>
   <script src="js/lib/angular.js"></script>
   <script src="js/lib/angularfire.js"></script>
-  <script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
 
   <!-- Angular App -->
   <script src="js/app.js"></script>
@@ -33,7 +32,6 @@
   <!-- <link href='css/googlefonts.css' rel='stylesheet' type='text/css'> -->
   <link rel="stylesheet" type="text/css" href="css/reset.css">
   <link rel="stylesheet" type="text/css" href="css/main.css">
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -83,15 +81,8 @@
                        <p class="conf-song-num">Your song <span>#2</span></p>
                     </div>
                 </div>
-
                 <form>
-                  <div class='container-fluid'>
-                    <pre>Model: {{asyncSelected | json}}</pre>
-                    <input type="text" ng-model="asyncSelected" placeholder="Search Soundcloud" typeahead="track for track in tracksSearch($viewValue) | filter:$viewValue" typeahead-loading="loadingIcon" class="form-control">
-                    <i ng-show="loadingIcon" class="glyphicon glyphicon-refresh"></i>
-                  </div>
                   <div class="sc-url-block">
-                    
                      <label>Find your track on souncloud and paste the URL below</label>
                      <input class="sc-url" type="text" ng-model="newsong.url" placeholder="Paste your soundcloud URL here">
                   </div>
