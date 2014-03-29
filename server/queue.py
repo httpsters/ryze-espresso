@@ -29,9 +29,10 @@ class SongQueue:
         ''' puts current song in previous queue, sets next song to current '''
         song_id = self.get_current_song() # get currently playing song ID
         song = self.lookup(song_id) # get the currently playing song object
-        song['last_played'] = int(time.time() * 1000) # last played = now
-        song['play_count'] = song.get('play_count', 0) + 1 # count += 1
-        result = firebase.put(config.SONGS, song_id, song)
+        if song is not None:
+            song['last_played'] = int(time.time() * 1000) # last played = now
+            song['play_count'] = song.get('play_count', 0) + 1 # count += 1
+            result = firebase.put(config.SONGS, song_id, song)
 
         next_queue = firebase.get(config.QUEUE, config.NEXT)
         if next_queue is None:
@@ -72,8 +73,9 @@ class SongQueue:
         get_score = lambda song_id: self._song_score(songs.get(song_id))
         # generate a list of (song_id, song_score) pairs
         scores = [(song_id, get_score(song_id)) for song_id in songs.keys()]
-        max_score = max(scores, key=lambda song: float(song[1])) # get max score
-        return max_score[0] # return song ID of the max score
+        scores.sort(key=lambda song: float(song[1]), reverse=True) # get max score
+        print "the top scores are", scores[:4]
+        return scores[0][0] # return song ID of the max score
 
     def _song_score(self, song):
         ''' given a song, return its 'score', which will be used to pick the
@@ -91,4 +93,14 @@ class SongQueue:
         score += -1 * (play_count - 10) ** 2 + 200 if play_count < 24 else 0
         score += like_count
         score *= math.pow(time_since_last_played, 0.3)
+
+        print """ since song added:  {}
+        since last liked:  {}
+        since last played: {}
+        likes:             {}
+        plays:             {}
+        SCORE: ----------  {:.3f}""".format(time_since_song_added, \
+                time_since_last_liked, time_since_last_played, \
+                like_count, play_count, score)
+
         return score
