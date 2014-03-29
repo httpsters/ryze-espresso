@@ -29,9 +29,10 @@ class SongQueue:
         ''' puts current song in previous queue, sets next song to current '''
         song_id = self.get_current_song() # get currently playing song ID
         song = self.lookup(song_id) # get the currently playing song object
-        song['last_played'] = int(time.time() * 1000) # last played = now
-        song['play_count'] = song.get('play_count', 0) + 1 # count += 1
-        result = firebase.put(config.SONGS, song_id, song)
+        if song is not None:
+            song['last_played'] = int(time.time() * 1000) # last played = now
+            song['play_count'] = song.get('play_count', 0) + 1 # count += 1
+            result = firebase.put(config.SONGS, song_id, song)
 
         next_queue = firebase.get(config.QUEUE, config.NEXT)
         if next_queue is None:
