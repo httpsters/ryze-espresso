@@ -43,6 +43,9 @@ class SongQueue:
             comp = lambda song: song.get('time_added', -1)
             sorted_queue = sorted(list_queue, key=comp)
 
+            print 'the sorted queue is'
+            pprint(sorted_queue)
+
             next_id = sorted_queue.pop(0).get('key') # get current song off the front
             print 'next song id is', next_id
 
