@@ -1,5 +1,5 @@
 angular.module('riseApp.controllers').controller("LeaderboardCtrl", function($scope, $firebase) {
-    var songsRef = new Firebase("https://shining-fire-6877.firebaseio.com/songs");
+    var songsRef = new Firebase(firebaseRoot + "/songs");
 
     $scope.users = [];
 

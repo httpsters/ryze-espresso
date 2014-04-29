@@ -1,6 +1,6 @@
 angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, $firebase, $http, $timeout, scResolve) {
-	var songsRef = new Firebase("https://shining-fire-6877.firebaseio.com/songs");
-	var userSongsRef = new Firebase("https://shining-fire-6877.firebaseio.com/queue/next");
+	var songsRef = new Firebase(firebaseRoot + "/songs");
+	var userSongsRef = new Firebase(firebaseRoot + "/queue/next");
     $scope.allSongs = $firebase(songsRef);
     $scope.userSongs = $firebase(userSongsRef);
 
