@@ -6,7 +6,7 @@ angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, 
 
     $scope.tracksSearch = function(query) {
 	    return $http.jsonp("http://api.soundcloud.com/tracks.json?q="+query+"&limit=10&client_id=e886c21459d731e8ac7aeedcb3c3b4bb").then(function(response){
-	    	console.log('submitctrl search response: ',response.data);
+	    	console.debug('submitctrl search response: ',response.data);
 	      return response.data;
 	    });
   	};
@@ -24,12 +24,13 @@ angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, 
 		// try and resolve track with soundcloud api
 		// (using angular service deferred promise result)
 		var trackPromise = scResolve.resolve(newsong.url);
-		console.log(trackPromise);
+		console.debug(trackPromise);
 		// wait on promise to return 
 		trackPromise.then(function(resolvedSong) {
-			console.log('submit ctrl adding resolved track: ');
-			console.log('   title: ',resolvedSong.title, 'duration: ', resolvedSong.duration);
-			console.log('   username: ', newsong.submitter);
+			console.debug("resolved song is", resolvedSong);
+			console.debug('submit ctrl adding resolved track: ');
+			console.debug('   title: ',resolvedSong.title, 'duration: ', resolvedSong.duration);
+			console.debug('   username: ', newsong.submitter);
 
 			var song = {
 				time_added: new Date().getTime(),
@@ -39,7 +40,7 @@ angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, 
 				duration: resolvedSong.duration,
 				title: resolvedSong.title,
 				play_count: 0,
-				url: newsong.url,
+				url: resolvedSong.permalink_url,
 				last_played: 0,
 			}
 
@@ -55,7 +56,7 @@ angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, 
 			
 			},
 			function(e) {
-				console.log(e);
+				console.debug(e);
 				alert('That url was not a valid track');
 			}
 		); // trackPromise handlers end
