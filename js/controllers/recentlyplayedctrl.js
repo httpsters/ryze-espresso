@@ -1,5 +1,5 @@
 angular.module('riseApp.controllers').controller("RecentlyPlayedCtrl", function($scope, $rootScope, $firebase) {
-    url = "https://shining-fire-6877.firebaseio.com";
+    url = firebaseRoot;
     var songsRef = $firebase(new Firebase(url + "/songs"));
 
     $scope.allSongs = [];

@@ -1,6 +1,6 @@
 angular.module('riseApp.controllers').controller("PlayerCtrl", function($scope, $rootScope, $firebase) {
 
-    var url = "https://shining-fire-6877.firebaseio.com";
+    var url = firebaseRoot;
     var queueRef = $firebase(new Firebase(url + "/queue"));
     var songsRef = $firebase(new Firebase(url + "/songs"));
     //$scope.nowplaying = $firebase(nowplaying_ref);
