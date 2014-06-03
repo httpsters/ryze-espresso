@@ -1,5 +1,5 @@
 from database import firebase
-import config
+import schema
 import json
 import random
 import time
@@ -9,7 +9,7 @@ from pprint import pprint
 class SongQueue:
 
     def get_songs(self):
-        result = firebase.get(config.SONGS, None)
+        result = firebase.get(schema.SONGS, None)
         return result
 
     def lookup(self, song_id):
@@ -17,12 +17,12 @@ class SongQueue:
 
     def get_current_song(self):
         ''' returns the song that's playing right now '''
-        result = firebase.get(config.QUEUE, config.CURRENT)
+        result = firebase.get(schema.QUEUE, schema.CURRENT)
         return result
 
     def get_previous_queue(self):
         ''' returns the previously played queue '''
-        queue = firebase.get(config.QUEUE, config.PREV) or []
+        queue = firebase.get(schema.QUEUE, schema.PREV) or []
         return queue
 
     def change_songs(self):
@@ -32,9 +32,9 @@ class SongQueue:
         if song is not None:
             song['last_played'] = int(time.time() * 1000) # last played = now
             song['play_count'] = song.get('play_count', 0) + 1 # count += 1
-            result = firebase.put(config.SONGS, song_id, song)
+            result = firebase.put(schema.SONGS, song_id, song)
 
-        next_queue = firebase.get(config.QUEUE, config.NEXT)
+        next_queue = firebase.get(schema.QUEUE, schema.NEXT)
         if next_queue is None:
             next_id = self._get_auto_song()
             print 'auto-choose: next song id is', next_id
@@ -61,12 +61,12 @@ class SongQueue:
             if queue_key is not None:
                 next_queue.pop(queue_key)
                 print "removed key", next_id, "at", queue_key
-                result = firebase.put(config.QUEUE, config.NEXT, next_queue)
+                result = firebase.put(schema.QUEUE, schema.NEXT, next_queue)
             else:
                 print "could not remove key", next_id, "at", queue_key
                 result = False
 
-        result = firebase.put(config.QUEUE, config.CURRENT, next_id)
+        result = firebase.put(schema.QUEUE, schema.CURRENT, next_id)
         song = self.lookup(next_id)
         if song is not None:
             song_link = song.get('url')
