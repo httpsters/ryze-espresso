@@ -35,7 +35,6 @@ if __name__ == '__main__':
         q = SongQueue()
         start_song()
         start = time.time()
-        1/0
         while True:
             if time.time() - start > 3:
                 print time.ctime()
