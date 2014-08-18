@@ -26,19 +26,15 @@ def start_song():
     song_id = q.get_current_song()
     song = q.lookup(song_id)
     song_length = int(song.get('duration', 0) / 1000.0)
-    logging.info("song %s playing. waiting %d seconds for next song" % \
-            (song_id, song_length))
+    logging.info("song %s playing. waiting %d seconds for next song" % (song_id, song_length))
     threading.Timer(song_length, start_song).start()
+
 
 if __name__ == '__main__':
     try:
         q = SongQueue()
         start_song()
-        start = time.time()
-        while True:
-            if time.time() - start > 3:
-                print time.ctime()
-                start = time.time()
+        print "working"
     except Exception as e:
         logger.error(e)
 
