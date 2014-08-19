@@ -1,3 +1,4 @@
 *.py[co]
 /html&css
 server/config.py
+node_modules
