@@ -102,7 +102,7 @@
             <form>
               <div class="sc-url-block">
                 <label>{{ newsong.url }} || {{ autocomplete }}</label>
-                <autocomplete ng-model='autocomplete' data='acSuggestions' on-type='autocompleteUpdate' on-select='autocompleteSelect'></autocomplete>
+                <autocomplete ng-model='autocomplete' data='acSuggestions' on-type='acUpdate' on-select='acSelect'></autocomplete>
                 <!--
                 <input class="sc-url" type="text" ng-model="searchInput" placeholder="Paste your soundcloud URL here">
                 <div angucomplete url='https://api.soundcloud.com/tracks.json?client_id=82a8a6acc0d0ee829c460221a492d2ec&limit=10&q=' selectedobject='autocomplete'

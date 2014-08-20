@@ -5,7 +5,7 @@ angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, 
 
 	$scope.autocomplete = '';
 	$scope.acSuggestions = [];
-	$scope.autocompleteUpdate = function(query) {
+	$scope.acUpdate = function(query) {
 		if (query.length < 3) {
 			$scope.acSuggestions = [];
 			return;
@@ -14,23 +14,23 @@ angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, 
 		var limit = 10;
 		var url = "http://api.soundcloud.com/tracks.json?q=" + query + "&limit=" + limit + "&client_id=" + clientId;
 
-		$http.get(url).success(function(response) {
+		$http.get(url).success(function(songs) {
 			var toString = function(song) {
 				var title = song.title,
 					artist = song.user.username;
-				return '' + title;
+				return '' + title + ' - ' + artist;
 			};
-			var songs = response;
 			var listOptions = _.map(songs, function(song) {
 				song.toString = toString(song);
 				return song;
 			});
+		//	console.log('the suggestions are', listOptions);
 			$scope.acSuggestions = listOptions;
 		});
 	};
 
-	$scope.autocompleteSelect = function(args) {
-		console.debug('selected', args);
+	$scope.acSelect = function(args, args2, args3) {
+		//console.debug('selected', args, args2, args3);
 	};
 
 	$scope.allSongs = $firebase(songsRef);
