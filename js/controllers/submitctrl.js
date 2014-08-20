@@ -3,7 +3,10 @@ angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, 
 	var userSongsRef = new Firebase(firebaseRoot + "/queue/next");
 	var clientId = 'e886c21459d731e8ac7aeedcb3c3b4bb';
 
-	$scope.submission = {}; // this has info for song that will get submitted to the db
+	$scope.submission = { // this has info for song that will get submitted to the db
+		url: '',
+		user: ''
+	};
 
 	$scope.autocomplete = '';
 	$scope.suggestions = [];
@@ -40,31 +43,30 @@ angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, 
 	$scope.userSongs = $firebase(userSongsRef);
 
 	$scope.confShowing = false;
-	$scope.toggle = function(){
-		$scope.confShowing = !($scope.confShowing);
-	};
-
 	$scope.showConf = function() {
-		$scope.toggle();
-		$timeout($scope.toggle, 4000);
+		$scope.confShowing = true;
+		$timeout(function() {
+			$scope.confShowing = false;
+		}, 4000);
 	};
 
 	$scope.submit = function() {
+		var submission = $scope.submission;
 		// try and resolve track with soundcloud api
 		// (using angular service deferred promise result)
-		var trackPromise = scResolve.resolve(newsong.url);
+		var trackPromise = scResolve.resolve(submission.url);
 		console.debug(trackPromise);
 		// wait on promise to return
 		trackPromise.then(
 			function(resolvedSong) {
 			console.debug("resolved song is", resolvedSong);
 			console.debug('submit ctrl adding resolved track: ');
-			console.debug('   title: ',resolvedSong.title, 'duration: ', resolvedSong.duration);
-			console.debug('   username: ', newsong.submitter);
+			console.debug('   title: ', resolvedSong.title, 'duration: ', resolvedSong.duration);
+			console.debug('   username: ', submission.user);
 
 			var song = {
 				time_added: new Date().getTime(),
-				added_by: newsong.submitter,
+				added_by: submission.user,
 				likes: 1,
 				last_liked: new Date().getTime(),
 				duration: resolvedSong.duration,
