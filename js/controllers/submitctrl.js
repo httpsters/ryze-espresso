@@ -8,22 +8,15 @@ angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, 
 	$scope.autocompleteUpdate = function(query) {
 		var limit = 10;
 		var url = "http://api.soundcloud.com/tracks.json?q=" + query + "&limit=" + limit + "&client_id=" + clientId;
+
 		$http.get(url).success(function(response) {
-
 			var toStr = function(song) {
-				return "" + song.title;
+				var title = song.title,
+					artist = song.user.username;
+				return '' + title + ' - ' + artist;
 			};
-
-			console.debug('got response:', response);
-
-			var listOptions = [];
-
-			var songs = response.data;
-			_.each(songs, function(song) {
-				console.debug(song);
-				listOptions.push(toStr(song))
-			});
-
+			var songs = response;
+			var listOptions = _.map(songs, toStr);
 			$scope.acSuggestions = listOptions;
 		});
 	};
