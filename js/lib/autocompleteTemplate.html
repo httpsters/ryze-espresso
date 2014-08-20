@@ -9,7 +9,7 @@
       filter:searchFilter | orderBy:toString track by $index"
       index="{{ $index }}" val="{{ suggestion }}"
       ng-class="{ active: ($index === selectedIndex) }"
-      ng-click="select(suggestion)"
-      ng-bind-html="suggestion.toString | highlight:searchParam"></li>
+      ng-click="select($index, suggestion)"
+      ng-bind-html="suggestion | highlight:searchParam"></li>
   </ul>
 </div>

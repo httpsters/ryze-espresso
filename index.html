@@ -101,7 +101,7 @@
             </div><!-- end confirmation block -->
             <form>
               <div class="sc-url-block">
-                <label>{{ newsong.url }} || {{ autocomplete }}</label>
+                <label>{{ submission.url }}</label>
                 <autocomplete ng-model='autocomplete' data='acSuggestions' on-type='acUpdate' on-select='acSelect'></autocomplete>
                 <!--
                 <input class="sc-url" type="text" ng-model="searchInput" placeholder="Paste your soundcloud URL here">
@@ -115,7 +115,7 @@
               </div>
               <div class="submit-url-block">
                 <label></label>
-                <button class="submit-url" ng-click="submit(newsong)" type="button">Submit</button>
+                <button class="submit-url" ng-click="submit()" type="button">Submit</button>
               </div>
             </form>
           </div><!-- end submit control -->

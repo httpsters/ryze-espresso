@@ -85,8 +85,9 @@ app.directive('autocomplete', function() {
 				if(suggestion){
 					$scope.searchParam = suggestion;
 					$scope.searchFilter = suggestion;
-					if($scope.onSelect)
-						$scope.onSelect(suggestion);
+					if ($scope.onSelect) {
+						$scope.onSelect($scope.getIndex(), suggestion);
+					}
 				}
 				watching = false;
 				$scope.completing = false;
