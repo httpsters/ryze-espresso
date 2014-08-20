@@ -2,6 +2,10 @@
 
 var app = angular.module('autocomplete', []);
 
+var escapeRegExp = function(str) { /* from http://stackoverflow.com/a/6969486 */
+  return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+};
+
 app.directive('autocomplete', function() {
   var index = -1;
 
@@ -217,34 +221,17 @@ app.directive('autocomplete', function() {
 
         if(scope.getIndex()!==-1 || keycode == key.enter)
           e.preventDefault();
-      });
-    },
-    template: '\
-        <div class="autocomplete {{ attrs.class }}" id="{{ attrs.id }}">\
-          <input\
-            type="text"\
-            ng-model="searchParam"\
-            placeholder="{{ attrs.placeholder }}"\
-            class="{{ attrs.inputclass }}"\
-            id="{{ attrs.inputid }}"/>\
-          <ul ng-show="completing">\
-            <li\
-              suggestion\
-              ng-repeat="suggestion in suggestions | filter:searchFilter | orderBy:\'toString()\' track by $index"\
-              index="{{ $index }}"\
-              val="{{ suggestion }}"\
-              ng-class="{ active: ($index === selectedIndex) }"\
-              ng-click="select(suggestion)"\
-              ng-bind-html="suggestion | highlight:searchParam"></li>\
-          </ul>\
-        </div>'
+	  });
+	},
+	templateUrl: 'js/lib/autocompleteTemplate.html'
   };
 });
 
 app.filter('highlight', ['$sce', function ($sce) {
   return function (input, searchParam) {
-    if (typeof input === 'function') return '';
+    if (typeof input === 'function') { return ''; }
     if (searchParam) {
+	  searchParam = escapeRegExp(searchParam);
       var words = '(' +
             searchParam.split(/\ /).join(' |') + '|' +
             searchParam.split(/\ /).join('|') +
