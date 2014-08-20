@@ -39,13 +39,16 @@
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/autocomplete.css">
-    
+
     <style>
       .upload-song, .upload-form {
         overflow: inherit;
       }
       .autocomplete {
         font-size: 12pt;
+      }
+      #conformation-block {
+        z-index: 1;
       }
     </style>
 
@@ -101,13 +104,9 @@
             </div><!-- end confirmation block -->
             <form>
               <div class="sc-url-block">
-                <label>{{ submission.url }}</label>
-                <autocomplete ng-model='autocomplete' data='acSuggestions' on-type='acUpdate' on-select='acSelect'></autocomplete>
-                <!--
-                <input class="sc-url" type="text" ng-model="searchInput" placeholder="Paste your soundcloud URL here">
-                <div angucomplete url='https://api.soundcloud.com/tracks.json?client_id=82a8a6acc0d0ee829c460221a492d2ec&limit=10&q=' selectedobject='autocomplete'
-                  titlefield='title'></div>
-                -->
+                <label>Select a song, and it'll be added to the now playing queue</label>
+                <autocomplete ng-model='autocomplete' data='acSuggestions' on-type='acUpdate' on-select='acSelect' attr-input-class='sc-url' attr-placeholder="Search on SoundCloud...">
+                </autocomplete>
               </div>
               <div class="nickname-block">
                 <label>Enter your nickname for the leader board</label>
