@@ -1,0 +1,1 @@
+../../components/allmighty-autocomplete/script/autocomplete.js

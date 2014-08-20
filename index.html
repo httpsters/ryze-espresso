@@ -8,12 +8,15 @@
 
     <title>Sound of RISE</title>
 
-    <link href='http://fonts.googleapis.com/css?family=Oswald:300, 400' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Lato:300, 400, 700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald:300,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+
 
     <!-- libs -->
-    <script src="js/lib/firebase.js"></script>
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/underscore.js"></script>
     <script src="js/lib/angular.js"></script>
+    <script src="js/lib/firebase.js"></script>
     <script src="js/lib/angularfire.js"></script>
 
     <!-- Angular App -->
@@ -24,14 +27,29 @@
     <script src="js/controllers/submitctrl.js"></script>
     <script src="js/controllers/leaderboardctrl.js"></script>
     <script src="js/controllers/recentlyplayedctrl.js"></script>
+    <script src="js/lib/autocomplete.js"></script>
 
     <!-- SoundCloud -->
     <script src="js/lib/soundcloud.js"></script>
 
     <!-- CSS -->
-    <!-- <link href='css/googlefonts.css' rel='stylesheet' type='text/css'> -->
+    <!--
+    <link href='css/googlefonts.css' rel='stylesheet' type='text/css'>
+    -->
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/autocomplete.css">
+    
+    <style>
+      .upload-song, .upload-form {
+        overflow: inherit;
+      }
+      .autocomplete {
+        font-size: 12pt;
+      }
+    </style>
+
+
   </head>
 
   <body>
@@ -80,11 +98,16 @@
                 <p class="right-conf-content__added">Your song was added to RISE playlist.</p>
                 <p class="conf-song-num">Your song is <span>#{{ upcomingSongs.length }}</span> in the queue</p>
               </div>
-            </div>
+            </div><!-- end confirmation block -->
             <form>
               <div class="sc-url-block">
-                <label>Find your track on souncloud and paste the URL below</label>
-                <input class="sc-url" type="text" ng-model="newsong.url" placeholder="Paste your soundcloud URL here">
+                <label>{{ newsong.url }} || {{ autocomplete }}</label>
+                <autocomplete ng-model='autocomplete' data='acSuggestions' on-type='autocompleteUpdate'></autocomplete>
+                <!--
+                <input class="sc-url" type="text" ng-model="searchInput" placeholder="Paste your soundcloud URL here">
+                <div angucomplete url='https://api.soundcloud.com/tracks.json?client_id=82a8a6acc0d0ee829c460221a492d2ec&limit=10&q=' selectedobject='autocomplete'
+                  titlefield='title'></div>
+                -->
               </div>
               <div class="nickname-block">
                 <label>Enter your nickname for the leader board</label>
@@ -95,7 +118,7 @@
                 <button class="submit-url" ng-click="submit(newsong)" type="button">Submit</button>
               </div>
             </form>
-          </div>
+          </div><!-- end submit control -->
         </div>
         <div class="three-col">
           <div class="col-1" ng-controller="PlayerCtrl">

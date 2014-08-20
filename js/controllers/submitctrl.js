@@ -3,15 +3,33 @@ angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, 
 	var userSongsRef = new Firebase(firebaseRoot + "/queue/next");
 	var clientId = 'e886c21459d731e8ac7aeedcb3c3b4bb';
 
-	$scope.allSongs = $firebase(songsRef);
-	$scope.userSongs = $firebase(userSongsRef);
+	$scope.autocomplete = '';
+	$scope.acSuggestions = [];
+	$scope.autocompleteUpdate = function(query) {
+		var limit = 10;
+		var url = "http://api.soundcloud.com/tracks.json?q=" + query + "&limit=" + limit + "&client_id=" + clientId;
+		$http.get(url).success(function(response) {
 
-	$scope.tracksSearch = function(query) {
-		return $http.jsonp("http://api.soundcloud.com/tracks.json?q="+query+"&limit=10&client_id="+clientId).then(function(response){
-			console.debug('submitctrl search response: ',response.data);
-			return response.data;
+			var toStr = function(song) {
+				return "" + song.title;
+			};
+
+			console.debug('got response:', response);
+
+			var listOptions = [];
+
+			var songs = response.data;
+			_.each(songs, function(song) {
+				console.debug(song);
+				listOptions.push(toStr(song))
+			});
+
+			$scope.acSuggestions = listOptions;
 		});
 	};
+
+	$scope.allSongs = $firebase(songsRef);
+	$scope.userSongs = $firebase(userSongsRef);
 
 	$scope.confShowing = false;
 	$scope.toggle = function(){

@@ -1,0 +1,22 @@
+{
+  "name": "ryze-espresso",
+  "version": "0.0.0",
+  "homepage": "https://github.com/httpsters/ryze-espresso",
+  "authors": [
+    "George Lifchits <george.lifchits@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angucomplete": "*",
+    "select2": "~3.4.8",
+    "angular-ui-select2": "~0.0.5",
+    "allmighty-autocomplete": "*"
+  }
+}
