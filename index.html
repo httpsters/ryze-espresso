@@ -50,6 +50,9 @@
       #conformation-block {
         z-index: 1;
       }
+      .submit-url-block button.submit-url:disabled {
+        background: #999;
+      }
     </style>
 
 
@@ -114,7 +117,7 @@
               </div>
               <div class="submit-url-block">
                 <label></label>
-                <button class="submit-url" ng-click="submit()" type="button">Submit</button>
+                <button class="submit-url" ng-click="submit()" ng-disabled="submitIsDisabled()" type="button">Submit</button>
               </div>
             </form>
           </div><!-- end submit control -->

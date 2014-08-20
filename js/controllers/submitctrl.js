@@ -14,6 +14,7 @@ angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, 
 
 	$scope.acUpdate = function(query) {
 		if (query.length < 3) {
+			$scope.submission.url = '';
 			$scope.acSuggestions = [];
 			return;
 		}
@@ -35,8 +36,23 @@ angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, 
 
 	$scope.acSelect = function(index, songName) {
 		var selectedSong = $scope.suggestions[index];
-		$scope.submission.name = songName;
 		$scope.submission.url = selectedSong.permalink_url;
+	};
+
+	$scope.submitIsDisabled = function() {
+		var urlIsValid = function() {
+			var url = $scope.submission.url;
+			if (!url || url === '') { return false; }
+			var match = url.match(/http.*\/\/soundcloud.com\/(.*)\/(.*)/);
+			return match !== null;
+		};
+		var userIsValid = function() {
+			var user = $scope.submission.user;
+			if (!user || user === '') { return false; }
+			return true;
+		};
+		var isValid = urlIsValid() && userIsValid();
+		return !isValid; // true (disabled) when invalid, false (enabled) when valid
 	};
 
 	$scope.allSongs = $firebase(songsRef);
