@@ -19,11 +19,10 @@ gulp.task('clean', function() {
 });
 
 gulp.task('css', function() {
-	var dir = 'client/scss/*.scss';
-	var outdir = 'build/css';
-	watch({ glob: dir })
+	var outdir = 'css';
+	watch({ glob: 'client/scss/*.scss' })
 		.pipe(sass())
-		.pipe(gulp.dest(outdir));
+		.pipe(gulp.dest('client/css'));
 });
 
 gulp.task('mincss', ['css'], function() {

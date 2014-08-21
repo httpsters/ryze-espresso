@@ -6,3 +6,4 @@ components
 .ipynb_checkpoints
 *.ipynb
 **/.sass-cache
+client/css/main.css
