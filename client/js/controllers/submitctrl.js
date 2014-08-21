@@ -9,7 +9,7 @@ angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, 
 	};
 
 	$scope.autocomplete = '';
-	$scope.suggestions = [];
+	$scope.fullSuggestions = [];
 	$scope.acSuggestions = [];
 
 	$scope.acUpdate = function(query) {
@@ -23,19 +23,19 @@ angular.module('riseApp.controllers').controller("SubmitCtrl", function($scope, 
 		var url = "http://api.soundcloud.com/tracks.json?q=" + query + "&limit=" + limit + "&client_id=" + clientId;
 
 		$http.get(url).success(function(songs) {
+			$scope.fullSuggestions = songs;
 			var toString = function(song) {
 				var title = song.title,
 				artist = song.user.username;
 				return '' + title + ' - ' + artist;
 			};
 			var listOptions = _.map(songs, toString);
-			$scope.suggestions = songs;
 			$scope.acSuggestions = listOptions;
 		});
 	};
 
 	$scope.acSelect = function(index, songName) {
-		var selectedSong = $scope.suggestions[index];
+		var selectedSong = $scope.fullSuggestions[index];
 		$scope.submission.url = selectedSong.permalink_url;
 	};
 
