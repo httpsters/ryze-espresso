@@ -1,7 +1,7 @@
 *.py[co]
-/html&css
 server/config.py
 node_modules
 components
 .ipynb_checkpoints
 *.ipynb
+**/.sass-cache

@@ -1,0 +1,242 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="keywords" content="" />
+   <meta http-equiv="description" content="" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+   <title>Home Page</title>
+
+   <link href='http://fonts.googleapis.com/css?family=Oswald:300, 400' rel='stylesheet' type='text/css'>
+   <link href='http://fonts.googleapis.com/css?family=Lato:300, 400, 700' rel='stylesheet' type='text/css'>
+
+   <script type="text/javascript">
+      function changeHeart(obj) {
+         obj.className = "like-heart new-heart";
+      }
+      function conformation(obj) {
+         document.getElementById('conformation-block').className = "conformation-active";
+      }
+   </script>
+
+   <link rel="stylesheet" type="text/css" href="css/reset.css">
+   <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+   <div class="wrapper">
+      <div class="left-sidebar">
+         <img src="images/riselogo.png" alt="">
+         <nav>
+            <ul>
+               <li><a href="">Home</a></li>
+               <li><a href="">About RISE</a></li>
+               <li><a href="">Menu</a></li>
+               <li><a href="">Contact</a></li>
+               <li><a href="">Press</a></li>
+               <li><a href="">Sound of RISE</a></li>
+            </ul>
+         </nav>
+      </div>
+      <div class="content">
+         <div class="desktop-logo-block">
+            <div class="desktop-logo-block-text">Sound of RISE</div>
+         </div>
+         <div class="about">
+            <div class="about-text">
+               <p>Conversations need a cup of coffee,</p>
+               <p>Coffee needs music,</p>
+               <p>Rise needs you</p>
+            </div>
+            <div class="about-pic-desc">
+               <img src="images/icons.svg" alt="">
+            </div>
+         </div>
+         <div class="upload-song">
+            <p class="desc">
+               We want to share our love of music with our fellow coffee drinkers. Share your favourite songs and we play them in the café for the rest Rise to hear.  Upload and vote for the music that matters to you.
+            </p>
+            <div class="upload-form" ng-controller="SubmitCtrl">
+              <div id="conformation-block" class="">
+                  <div class="left-conf-content">
+                     <div class="great-block">
+                        <p>Great</p>
+                        <p>choice !</p>
+                     </div>
+                     <img src="images/rock.jpg" alt="">
+                  </div>
+                  <div class="right-conf-content">
+                     <p class="right-conf-content__added">Your song was added to RISE playlist.</p>
+                     <p class="conf-song-num">Your song <span>#2</span></p>
+                  </div>
+              </div>
+               <form action="">
+                  <div class="sc-url-block">
+                     <label>Find your track on souncloud and paste the URL below</label>
+                     <input class="sc-url" type="text" placeholder="Paste your soundcloud URL here">
+                  </div>
+                  <div class="nickname-block">
+                     <label>Enter your nickname for the leader board</label>
+                     <input class="nickname" type="text" placeholder="Nickname">
+                  </div>
+                  <div class="submit-url-block">
+                     <label></label>
+                     <!-- <input onclick="conformation(this)" class="submit-url" type="submit"> -->
+                     <button class="submit-url" onclick="conformation(this)" type="button" ng-click="submit(newsong)">Submit</button>
+                  </div>
+               </form>
+            </div>
+         </div>
+         <div class="three-col">
+            <div class="col-1">
+               <div class="sc-play">
+                  <img style="width:100%;" src="images/play.jpg" alt="">
+               </div>
+               <div class="tablet-block">
+                  <h2>UPCOMING SONGS</h2>
+                  <ul class="songs-list">
+                     <li>
+                        <div class="track-name">Track Name</div>
+                        <div class="like">Like</div>
+                        <div class="countdown-title">Countdown</div>
+                     </li>
+                     <li>
+                        <div class="title-song-block">
+                           <div class="title-song">Happy</div>
+                           <div class="submit-by">Submitted by <span class="submition-name">JTopp</span></div>
+                        </div>
+                        <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
+                        <div class="countdown"><span class="countdown-time">3.43</span> mins</div>
+                     </li>
+                     <li>
+                        <div class="title-song-block">
+                           <div class="title-song">Dark Horse</div>
+                           <div class="submit-by">Submitted by <span class="submition-name">King George</span></div>
+                        </div>
+                        <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
+                        <div class="countdown"><span class="countdown-time">5:27</span> mins</div>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <div class="col-2">
+               <h2>RECENTLY PLAYED</h2>
+               <ul class="songs-list">
+                  <li>
+                     <div class="track-name">Track Name</div>
+                     <div class="like">Like</div>
+                  </li>
+                  <li>
+                     <div class="title-song-block">
+                        <div class="title-song">A Day in the World</div>
+                        <div class="submit-by">Submitted by <span class="submition-name">JTopp</span></div>
+                     </div>
+                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
+                  </li>
+                  <li>
+                     <div class="title-song-block">
+                        <div class="title-song">Suburbs</div>
+                        <div class="submit-by">Submitted by <span class="submition-name">King George</span></div>
+                     </div>
+                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
+                  </li>
+                  <li>
+                     <div class="title-song-block">
+                        <div class="title-song">Reﬂector</div>
+                        <div class="submit-by">Submitted by <span class="submition-name">Alexey</span></div>
+                     </div>
+                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
+                  </li>
+                  <li>
+                     <div class="title-song-block">
+                        <div class="title-song">Neighbourhood #1</div>
+                        <div class="submit-by">Submitted by <span class="submition-name">Sudeep</span></div>
+                     </div>
+                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
+                  </li>
+                  <li>
+                     <div class="title-song-block">
+                        <div class="title-song">Coldplay - Paradise</div>
+                        <div class="submit-by">Submitted by <span class="submition-name">JTopp</span></div>
+                     </div>
+                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
+                  </li>
+                  <li>
+                     <div class="title-song-block">
+                        <div class="title-song">Coldplay</div>
+                        <div class="submit-by">Submitted by <span class="submition-name">JTopp</span></div>
+                     </div>
+                     <a href="javascript:void();" onclick="changeHeart(this)" class="like-heart"></a>
+                  </li>
+               </ul>
+            </div>
+            <div class="col-3">
+               <h2>LEADER BOARD</h2>
+               <ul class="songs-list">
+                  <li>
+                     <div class="rank-name-title">Rank</div>
+                     <div class="rank-nickname-title">Nickname</div>
+                     <div class="like-heart-counts-title">Likes</div>
+                  </li>
+                  <li>
+                     <div class="rank">1</div>
+                     <div class="rank-nickname">JTopp</div>
+                     <div class="like-heart-counts">157</div>
+                  </li>
+                  <li>
+                     <div class="rank">2</div>
+                     <div class="rank-nickname">Sudeep</div>
+                     <div class="like-heart-counts">124</div>
+                  </li>
+                  <li>
+                     <div class="rank">3</div>
+                     <div class="rank-nickname">Sudeep</div>
+                     <div class="like-heart-counts">124</div>
+                  </li>
+                  <li>
+                     <div class="rank">4</div>
+                     <div class="rank-nickname">Alexey</div>
+                     <div class="like-heart-counts">124</div>
+                  </li>
+                  <li>
+                     <div class="rank">5</div>
+                     <div class="rank-nickname">JTopp</div>
+                     <div class="like-heart-counts">124</div>
+                  </li>
+                  <li>
+                     <div class="rank">6</div>
+                     <div class="rank-nickname">Sudeep</div>
+                     <div class="like-heart-counts">124</div>
+                  </li>
+                  <li>
+                     <div class="rank">7</div>
+                     <div class="rank-nickname">Sudeep</div>
+                     <div class="like-heart-counts">124</div>
+                  </li>
+                  <li>
+                     <div class="rank">8</div>
+                     <div class="rank-nickname">JTopp</div>
+                     <div class="like-heart-counts">124</div>
+                  </li>
+                  <li>
+                     <div class="rank">9</div>
+                     <div class="rank-nickname">Sudeep</div>
+                     <div class="like-heart-counts">124</div>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <footer>
+            <div class="footer-content">
+               <ul>
+                  <li><a class="goog" target="_blank" href="https://plus.google.com/u/0/+RiseEspressoToronto/posts"></a></li>
+                  <li><a class="fb" target="_blank" href="https://www.facebook.com/pages/RISE-espresso/270535649662396"></a></li>
+                  <li><a class="twit" target="_blank" href="https://twitter.com/Rise107Mutual"></a></li>
+               </ul>
+               <p class="copyright">&copy; Copyright 2014</p>
+            </div>
+         </footer>
+      </div>
+   </div>
+</body>
+</html>
