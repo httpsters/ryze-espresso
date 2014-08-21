@@ -279,18 +279,21 @@ h2 {
       width: 12.3969%;
    }
 
-   .submit-url {
+   button.submit-url {
       width: 100%;
       font-size: 18px;
       font-weight: 400;
       font-family: 'Lato', 'Lato-reg';
       border: none;
-      background: #ED1F24;
       padding: 14px 0;
       text-align: center;
       cursor: pointer;
       color: #fff;
       outline: none;
+      background: #ED1F24;
+      &:disabled {
+        background: #999;
+     }
    }
 }
 
@@ -921,12 +924,6 @@ footer {
          margin-bottom: 5px;
          width: 38.6458%;
          outline: none;
-
-         button.submit-url {
-           &:disabled {
-             background: #999;
-           }
-         }
       }
    }
 
