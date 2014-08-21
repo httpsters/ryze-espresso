@@ -9,12 +9,13 @@ var htmlReplace = require('gulp-html-replace');
 
 
 var BUILD = 'build';
+var VENDORFILE = 'libs.js';
+var JSFILE = 'bundle.js';
+var CSSFILE = 'styles.css';
 
 
 gulp.task('clean', function() {
-	gulp.src(BUILD, {read: false}).pipe(clean());
-	gulp.src('images', {read: false}).pipe(clean());
-	gulp.src('index.html', {read: false}).pipe(clean());
+	return gulp.src(BUILD, {read:false}).pipe(clean({force:true}));
 });
 
 gulp.task('css', function() {
@@ -39,14 +40,15 @@ gulp.task('mincss', ['css'], function() {
 gulp.task('vendor', function() {
 	return gulp.src([
 		'client/js/lib/angular.js',
+		'client/js/lib/jquery.js',
 		'client/js/lib/firebase.js',
+		'client/js/lib/underscore.js',
 		'client/js/lib/*.js'
 	])
-		.pipe(concat('libs.js'))
+		.pipe(concat(VENDORFILE))
 		.pipe(gulp.dest(BUILD));
 });
 
-var JSFILE = 'bundle.js';
 
 gulp.task('js', function() {
 	// now compile all of the JS, including the templates file
@@ -61,30 +63,27 @@ gulp.task('js', function() {
 
 gulp.task('assets', function() {
 	return gulp.src('client/images/*')
-		.pipe(gulp.dest('images'));
+		.pipe(gulp.dest(BUILD+'/images'));
 });
 
 gulp.task('replace', function() {
 	return gulp.src('client/index.html')
 		.pipe(htmlReplace({
-			css: BUILD+'/styles.css',
-			libs: BUILD+'/libs.js',
-			js: BUILD+'/'+JSFILE
+			css: CSSFILE,
+			libs: VENDORFILE,
+			js: JSFILE
 		}))
-		.pipe(gulp.dest('.'));
-});
-
-gulp.task('server', function() {
-	connect.server({
-		livereload: true
-	});
+		.pipe(gulp.dest(BUILD));
 });
 
 gulp.task('default', [
 	'clean',
-	'server',
 	'css'
-]);
+], function() {
+	connect.server({
+		root: 'client'
+	});
+});
 
 gulp.task('deploy', [
 	'clean',
@@ -93,5 +92,8 @@ gulp.task('deploy', [
 	'mincss',
 	'replace',
 	'assets',
-	'server'
-]);
+], function() {
+	connect.server({
+		root: BUILD
+	});
+});
