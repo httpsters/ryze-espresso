@@ -70,7 +70,6 @@ class SongQueue:
         song = self.lookup(next_id)
         if song is not None:
             song_link = song.get('url')
-            result = firebase.put('nowplaying', 'cur', song_link)
         return result
 
     def _get_auto_song(self):
