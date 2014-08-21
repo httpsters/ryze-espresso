@@ -1,4 +1,5 @@
 *.py[co]
+build
 server/config.py
 node_modules
 components

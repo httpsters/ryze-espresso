@@ -3,12 +3,14 @@
   "version": "0.0.0",
   "description": "Sound of RISE =============",
   "main": "index.js",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "gulp": "^3.8.7",
+    "gulp-concat": "^2.3.4",
     "gulp-connect": "^2.0.6",
+    "gulp-html-replace": "^1.1.0",
     "gulp-sass": "^0.7.3",
+    "gulp-util": "^3.0.0",
     "gulp-watch": "^0.6.9"
   },
   "scripts": {
