@@ -212,7 +212,6 @@ h2 {
 
 .upload-song {
    @include outer-container;
-   overflow: hidden;
    border-top: 1px solid #fff;
 
    .desc {
@@ -229,10 +228,13 @@ h2 {
 .upload-form {
       padding: 3.4026%;
       background: #fff;
-      overflow: hidden;
       //display inline-block element's space fix
       font-size: 0;
       position: relative;
+
+      .autocomplete {
+        font-size: 12pt;
+      }
 
    label {
       font-size: 13px;
@@ -295,6 +297,7 @@ h2 {
 #conformation-block {
    position: absolute;
    display: none;
+   z-index: 1;
    background: #fff;
    height: 100%;
    width: 100%;
@@ -918,6 +921,12 @@ footer {
          margin-bottom: 5px;
          width: 38.6458%;
          outline: none;
+
+         button.submit-url {
+           &:disabled {
+             background: #999;
+           }
+         }
       }
    }
 
