@@ -20,6 +20,8 @@ gulp.task('clean', function() {
 		.pipe(gulp.src('index.html', {read:false}))
 		.pipe(clean({force:true}))
 		.pipe(gulp.src('images', {read:false}))
+		.pipe(clean({force:true}))
+		.pipe(gulp.src('templates', {read:false}))
 		.pipe(clean({force:true}));
 });
 
@@ -65,19 +67,24 @@ gulp.task('js', function() {
 		.pipe(gulp.dest(BUILD));
 });
 
-gulp.task('assets', function() {
+gulp.task('images', function() {
 	return gulp.src('client/images/*')
-		.pipe(gulp.dest(BUILD+'/images'));
+		.pipe(gulp.dest('./images'));
+});
+
+gulp.task('templates', function() {
+	return gulp.src('client/templates/*')
+		.pipe(gulp.dest('./templates'));
 });
 
 gulp.task('replace', function() {
 	return gulp.src('client/index.html')
 		.pipe(htmlReplace({
-			css: CSSFILE,
-			libs: VENDORFILE,
-			js: JSFILE
+			css: BUILD + '/' + CSSFILE,
+			libs: BUILD + '/' + VENDORFILE,
+			js: BUILD + '/' + JSFILE
 		}))
-		.pipe(gulp.dest(BUILD));
+		.pipe(gulp.dest('.'));
 });
 
 gulp.task('default', [
@@ -95,9 +102,8 @@ gulp.task('deploy', [
 	'js',
 	'mincss',
 	'replace',
-	'assets',
+	'images',
+	'templates',
 ], function() {
-	connect.server({
-		root: BUILD
-	});
+	connect.server();
 });
