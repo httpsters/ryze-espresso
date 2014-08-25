@@ -4,7 +4,10 @@ var sass = require('gulp-sass');
 var clean = require('gulp-clean');
 var watch = require('gulp-watch');
 var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
 var connect = require('gulp-connect');
+var ngAnnotate = require('gulp-ng-annotate');
+var stripDebug = require('gulp-strip-debug');
 var htmlReplace = require('gulp-html-replace');
 
 
@@ -15,15 +18,14 @@ var CSSFILE = 'styles.css';
 
 
 gulp.task('clean', function() {
-	return gulp.src(BUILD, {read:false})
-		.pipe(clean({force:true}))
-		.pipe(gulp.src('index.html', {read:false}))
-		.pipe(clean({force:true}))
-		.pipe(gulp.src('images', {read:false}))
-		.pipe(clean({force:true}))
-		.pipe(gulp.src('templates', {read:false}))
-		.pipe(clean({force:true}));
-});
+	return gulp.src([
+		BUILD,
+		'index.html',
+		'./images',
+		'./templates'
+	], { read:false })
+		.pipe(clean({ force:true }));
+ });
 
 gulp.task('css', function() {
 	var outdir = 'css';
@@ -32,7 +34,10 @@ gulp.task('css', function() {
 		.pipe(gulp.dest('client/css'));
 });
 
-gulp.task('mincss', ['css'], function() {
+gulp.task('mincss', function() {
+	gulp.src('client/scss/*.scss')
+		.pipe(sass())
+		.pipe(gulp.dest('client/css'));
 	return gulp.src([
 		'client/css/reset.css',
 		'client/css/bootstrap3.0.3.css',
@@ -52,6 +57,8 @@ gulp.task('vendor', function() {
 		'client/js/lib/*.js'
 	])
 		.pipe(concat(VENDORFILE))
+		.pipe(stripDebug())
+		.pipe(uglify())
 		.pipe(gulp.dest(BUILD));
 });
 
@@ -64,6 +71,9 @@ gulp.task('js', function() {
 		'client/js/controllers/*.js',
 	])
 		.pipe(concat(JSFILE))
+		.pipe(stripDebug())
+		.pipe(ngAnnotate())
+		.pipe(uglify())
 		.pipe(gulp.dest(BUILD));
 });
 
@@ -97,7 +107,6 @@ gulp.task('default', [
 });
 
 gulp.task('deploy', [
-	'clean',
 	'vendor',
 	'js',
 	'mincss',
