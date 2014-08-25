@@ -4,7 +4,9 @@ angular.module('riseApp.controllers').controller("LeaderboardCtrl", function($sc
     $scope.users = [];
 
     songsRef.on('value', function(snapshot) {
+		console.debug('leaderboardctrl: got snapshot', snapshot);
         var songs = snapshot.val();
+		console.debug('leaderboardctrl: got snapshot.val', snapshot.val());
         users = {};
 
         // grab users and likes from the full list of songs

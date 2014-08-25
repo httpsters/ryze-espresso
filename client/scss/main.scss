@@ -1010,3 +1010,20 @@ footer {
       margin-bottom: 25px;
    }
 }
+
+
+#admin-panel {
+  margin: 2em 2em 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  h1 {
+    font-size: 24px;
+    margin-bottom: 1em;
+  }
+
+  table {
+    th, td {
+      padding: 5px 10px;
+    }
+  }
+}
