@@ -15,15 +15,14 @@ var CSSFILE = 'styles.css';
 
 
 gulp.task('clean', function() {
-	return gulp.src(BUILD, {read:false})
-		.pipe(clean({force:true}))
-		.pipe(gulp.src('index.html', {read:false}))
-		.pipe(clean({force:true}))
-		.pipe(gulp.src('images', {read:false}))
-		.pipe(clean({force:true}))
-		.pipe(gulp.src('templates', {read:false}))
-		.pipe(clean({force:true}));
-});
+	return gulp.src([
+		BUILD,
+		'index.html',
+		'./images',
+		'./templates'
+	], { read:false })
+		.pipe(clean({ force:true }));
+ });
 
 gulp.task('css', function() {
 	var outdir = 'css';
@@ -32,7 +31,10 @@ gulp.task('css', function() {
 		.pipe(gulp.dest('client/css'));
 });
 
-gulp.task('mincss', ['css'], function() {
+gulp.task('mincss', function() {
+	gulp.src('client/scss/*.scss')
+		.pipe(sass())
+		.pipe(gulp.dest('client/css'));
 	return gulp.src([
 		'client/css/reset.css',
 		'client/css/bootstrap3.0.3.css',

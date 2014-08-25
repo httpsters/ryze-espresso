@@ -14,10 +14,9 @@
     "tests"
   ],
   "dependencies": {
-    "angucomplete": "*",
-    "select2": "~3.4.8",
-    "angular-ui-select2": "~0.0.5",
     "allmighty-autocomplete": "*",
-    "angular-route": "~1.2.23"
+    "angular-route": "~1.2.23",
+    "underscore": "~1.6.0",
+    "jquery": "~2.1.1"
   }
 }
