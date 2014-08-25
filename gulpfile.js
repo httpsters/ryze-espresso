@@ -4,7 +4,10 @@ var sass = require('gulp-sass');
 var clean = require('gulp-clean');
 var watch = require('gulp-watch');
 var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
 var connect = require('gulp-connect');
+var ngAnnotate = require('gulp-ng-annotate');
+var stripDebug = require('gulp-strip-debug');
 var htmlReplace = require('gulp-html-replace');
 
 
@@ -54,6 +57,8 @@ gulp.task('vendor', function() {
 		'client/js/lib/*.js'
 	])
 		.pipe(concat(VENDORFILE))
+		.pipe(stripDebug())
+		.pipe(uglify())
 		.pipe(gulp.dest(BUILD));
 });
 
@@ -66,6 +71,9 @@ gulp.task('js', function() {
 		'client/js/controllers/*.js',
 	])
 		.pipe(concat(JSFILE))
+		.pipe(stripDebug())
+		.pipe(ngAnnotate())
+		.pipe(uglify())
 		.pipe(gulp.dest(BUILD));
 });
 
@@ -99,7 +107,6 @@ gulp.task('default', [
 });
 
 gulp.task('deploy', [
-	'clean',
 	'vendor',
 	'js',
 	'mincss',
