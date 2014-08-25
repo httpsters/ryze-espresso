@@ -1,0 +1,26 @@
+<div ng-controller="AdminCtrl" id='admin-panel'>
+  <div class='container'>
+    <h1>Admin panel</h1>
+
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Likes</th>
+        <th>Submitter</th>
+        <th>Time Added</th>
+        <th>URL</th>
+        <th>Actions</th>
+      </tr>
+      <tr ng-repeat='song in songs'>
+        <td>{{ song.id }}</td>
+        <td>{{ song.title }}</td>
+        <td>{{ song.likes }}</td>
+        <td>{{ song.added_by }}</td>
+        <td>{{ song.time_added | toDate }}</td>
+        <td><a href='{{ song.url }}'>Link</a></td>
+        <td><button ng-click='removeSong(song)'>Delete</button></td>
+      </tr>
+    </table>
+  </div>
+</div>

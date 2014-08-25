@@ -1,10 +1,10 @@
 var gulp = require('gulp');
 var util = require('gulp-util');
-var clean = require('gulp-clean');
-var connect = require('gulp-connect');
 var sass = require('gulp-sass');
+var clean = require('gulp-clean');
 var watch = require('gulp-watch');
 var concat = require('gulp-concat');
+var connect = require('gulp-connect');
 var htmlReplace = require('gulp-html-replace');
 
 
@@ -15,7 +15,12 @@ var CSSFILE = 'styles.css';
 
 
 gulp.task('clean', function() {
-	return gulp.src(BUILD, {read:false}).pipe(clean({force:true}));
+	return gulp.src(BUILD, {read:false})
+		.pipe(clean({force:true}))
+		.pipe(gulp.src('index.html', {read:false}))
+		.pipe(clean({force:true}))
+		.pipe(gulp.src('images', {read:false}))
+		.pipe(clean({force:true}));
 });
 
 gulp.task('css', function() {

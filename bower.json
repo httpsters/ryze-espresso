@@ -17,6 +17,7 @@
     "angucomplete": "*",
     "select2": "~3.4.8",
     "angular-ui-select2": "~0.0.5",
-    "allmighty-autocomplete": "*"
+    "allmighty-autocomplete": "*",
+    "angular-route": "~1.2.23"
   }
 }
